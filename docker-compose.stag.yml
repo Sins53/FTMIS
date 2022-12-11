@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  ocas:
+    build: 
+      context: .
+      dockerfile: Dockerfile.stag
+    image: nnrfcmis-frontend
+    container_name: nnrfcmis-frontend
+    networks:
+     - nnrfcmis
+    restart: always 
+    ports:
+     - 80:80
+
+networks:
+  nnrfcmis:
+     external: true
+

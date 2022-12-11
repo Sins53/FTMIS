@@ -1,0 +1,16 @@
+version: '3.3'
+networks:
+  mynetwork:
+     external:
+       name: mynetwork
+services:
+  ams-frontend:
+    build: .
+    image: ams-frontend
+    container_name: ams-frontend
+    network_mode: mynetwork 
+    restart: always 
+    ports:
+     - 80:80
+     
+  

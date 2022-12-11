@@ -1,0 +1,47 @@
+// // .react-datepicker {
+// //     font-size: 10px;
+// // }
+// // .react-datepicker__day-name, .react-datepicker__day {
+// //     width: 2em;
+// // }
+// // .react-datepicker__time-box {
+// //     width: '60px';
+// // }
+// // .react-datepicker-popper {
+// //     z-index: 1000;
+// // }
+
+// .react-datepicker {
+//   &__navigation {
+//     &--previous,
+//     &--next {
+//       top: 2px !important;
+//       transform: unset !important;
+//     }
+//     &--years {
+//       &-upcoming {
+//         // position: relative !important;
+//         // background-color: red;
+//         width: 0;
+//         // height: 0;
+//         border-left: 6px solid transparent;
+//         border-right: 6px solid transparent;
+//         border-bottom: 10px solid #cccccc;
+//         // &:after {
+//         //   content: '\e90e';
+//         //   position: absolute;
+//         //   left: 50%;
+//         //   top: 50%;
+//         //   transform: translate(-50%, 50%);
+//         //   display: block;
+//         // }
+//       }
+//       &-previous {
+//         width: 0;
+//         border-left: 6px solid transparent;
+//         border-right: 6px solid transparent;
+//         border-top: 10px solid #cccccc;
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,18 @@
+{
+  "firstName": "First Name",
+  "middleName": "Middle Name",
+  "lastName": "Last Name",
+  "email": "Email",
+  "mobileNumber": "Mobile Number",
+  "password": "Password",
+  "employeeId": "Employee Id",
+  "department": "Department",
+  "designation": "Designation",
+  "province": "Province",
+  "branch": "Branch",
+
+  "internal": {
+    "internalUser": "Internal User",
+    "createInternalUser": "Create Internal User"
+  }
+}

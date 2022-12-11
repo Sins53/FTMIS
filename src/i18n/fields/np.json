@@ -1,0 +1,587 @@
+{
+  "title": "कृषि विकास बैंक",
+  "logout": "लग-आउट",
+  "changepassword": "पासवर्ड बदल्नुहोस",
+  "actions": {
+    "title": "कार्य",
+    "status": "स्थिति",
+    "edit": "सम्पादन गर्नुहोस्",
+    "download": "डाउनलोड",
+    "view": "हेर्नुहोस्",
+    "delete": "निष्क्रिय",
+    "isactive": "स्थिति",
+    "forward": "फर्वार्ड गर्नुहोस्",
+    "fullScreen": "ठुलो बनाउनुहोस",
+    "exitFullScreen": "सानो बनाउनुहोस",
+    "share": "शेयर गर्नुहोस्",
+    "pesh": "पेश गर्नुहोस्",
+    "filterBy": "फिल्टर छान्नुहोस्",
+    "viewBy": "हेर्नुहोस्"
+  },
+  "buttons": {
+    "upload": "अपलोड",
+    "delete": "निष्क्रिय",
+    "remove": "हटाउनुहोस",
+    "replace": "बदल्नुहोस",
+    "update": "अपडेट गर्नुहोस्",
+    "previous": "अघिल्लो",
+    "submit": "बुझाउनुहोस्",
+    "next": "अर्को",
+    "save": "सेभ गर्नुहोस्",
+    "discard": "हटाउनुहोस",
+    "draft": "ड्राफ्ट",
+    "saveadd": "बुझाउनुहोस् र पूनः थप्नुहोस्",
+    "filter": "फिल्टर",
+    "reset": "रिसेट",
+    "download": "डाउनलोड गर्नुहोस्",
+    "continue": "अगाडि बढ्नुहोस्",
+    "cancel": "रद्द गर्नुहोस्",
+    "close": "बन्द गर्नुहोस्",
+    "create": "सिर्जना गर्नुहोस्",
+    "add": "थप्नुहोस्",
+    "edit": "सम्पादन गर्नुहोस्",
+    "back": "पछाडि जानुहोस्",
+    "approve": "स्वीकृत गर्नुहोस्",
+    "forward": "अर्को स्वीकृत गर्नेलाई पठाउनुहोस्",
+    "reject": "अस्वीकार गर्नुहोस्",
+    "confirm": "पुष्टि गर्नुहोस्",
+    "ok": "ठिक छ",
+    "generate": "जेनेरेट",
+    "duplicate": "नक्कल गर्नुहोस्",
+    "search": "खोज्नुहोस्",
+    "configure": "कन्फिगर गर्नुहोस्",
+    "activate": "सक्रिय गर्नुहोस्",
+    "deactivate": "निष्क्रिय गर्नुहोस्",
+    "browse": "ब्राउज गर्नुहोस्",
+    "browseNote": "कुनै फाईल चयन गरिएको छैन",
+    "apply": "सेभ गर्नुहोस्",
+    "file": "कागजात",
+    "systemFile": "प्रणालीको कागजात",
+    "print": "प्रिन्ट गर्नुहोस्",
+    "attach": "संलग्न गर्नुहोस",
+    "send": "पठाउनुहोस",
+    "request": "अनुरोध गर्नुहोस्",
+    "rawana": "रावणा अनुरोध गर्नुहोस्",
+    "saveasdraft": "ड्राफ्टको रुपमा सेभ गर्नुहोस्",
+    "try-again": "पुनःप्रयास गर्नुहोस",
+    "yes": "हो",
+    "no": "होइन"
+  },
+  "nameEn": {
+    "label": "नाम (अंग्रेजी)",
+    "requiredValidation": " नाम (अंग्रेजी) आवश्यक छ।",
+    "minLengthValidation": " न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "nameNp": {
+    "label": "नाम (नेपाली)",
+    "requiredValidation": " नाम (नेपाली) आवश्यक छ।",
+    "minLengthValidation": " न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "loan_category": {
+    "label": "ऋण श्रेणी",
+    "requiredValidation": "ऋण श्रेणी आवश्यक छ।"
+  },
+  "address": {
+    "label": "ठेगाना",
+    "requiredValidation": "ठेगाना आवश्यक छ।",
+    "minLengthValidation": " न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "branchCode": {
+    "label": "शाखा कोड",
+    "requiredValidation": " शाखा कोड आवश्यक छ।",
+    "minLengthValidation": " ४ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "४ वर्णहरू मात्र अनुमति दिइएको छ"
+  },
+  "province": {
+    "label": "प्रान्त",
+    "requiredValidation": " प्रान्त आवश्यक छ।",
+    "minLengthValidation": " न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "province_np": {
+    "label": "प्रान्त (नेपाली)",
+    "requiredValidation": " Province is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "province_num": {
+    "requiredValidation": " प्रान्त नम्बर आवश्यक छ।",
+    "minLengthValidation": "Minimum 1 characters required"
+  },
+  "head_province_office": {
+    "label": "प्रधान कार्यालय",
+    "requiredValidation": "प्रधान कार्यालयको नाम आवश्यक छ।"
+  },
+  "province_office": {
+    "label": "प्रदेश कार्यालय",
+    "requiredValidation": "प्रदेश कार्यालयको नाम आवश्यक छ।"
+  },
+  "parent_organization": {
+    "label": "अभिभावक संगठन",
+    "requiredValidation": "अभिभावक संगठन आवश्यक छ।"
+  },
+  "description_en": {
+    "label": "विवरण (अंग्रेजी)",
+    "requiredValidation": "विवरण (अंग्रेजी) आवश्यक छ।",
+    "minLengthValidation": " न्यूनतम ८  वर्ण आवश्यक छ।"
+  },
+  "description_np": {
+    "label": "विवरण (नेपाली)",
+    "requiredValidation": "विवरण (नेपाली) आवश्यक छ।",
+    "minLengthValidation": " न्यूनतम ८  वर्ण आवश्यक छ।"
+  },
+  "is_collateral_less": {
+    "label": "धितो बिनाको ऋण हो?",
+    "requiredValidation": "धितो बिनाको ऋण आवश्यक छ।"
+  },
+  "employment_name": {
+    "label": "रोजगार नाम",
+    "requiredValidation": "रोजगार नाम आवश्यक छ।"
+  },
+  "email": {
+    "label": "इमेल",
+    "requiredValidation": " इमेल आवश्यक छ।",
+    "invalidEmail": "अमान्य इमेल"
+  },
+  "username": {
+    "label": "प्रयोगकर्ताको नाम",
+    "requiredValidation": " प्रयोगकर्ता नाम आवश्यक छ।"
+  },
+  "password": {
+    "label": "पासवर्ड",
+    "requiredValidation": " पासवर्ड आवश्यक छ।"
+  },
+  "rememberme": {
+    "label": "याद राख्नुहोस्"
+  },
+  "terms_and_condition": {
+    "label": "म सबै सर्त र सर्तहरू स्वीकार गर्दछु",
+    "requiredValidation": "नियम र सर्तहरू आवश्यक छ।"
+  },
+  "captcha": {
+    "label": "क्याप्चा राख्नुहोस्"
+  },
+  "mobile": {
+    "label": "मोबाइल नम्बर",
+    "requiredValidation": " मोबाइल नम्बर आवश्यक छ।",
+    "minLengthValidation": "मोबाइल नम्बर १० वर्णको हुनुपर्छ"
+  },
+  "designation": {
+    "label": "पद",
+    "requiredValidation": "पद आवश्यक छ।"
+  },
+  "employee": {
+    "label": "कर्मचारी आईडी",
+    "requiredValidation": "कर्मचारी आईडी आवश्यक छ।"
+  },
+
+  "table": {
+    "sn": "क्र.सं.",
+    "status": "स्थिति",
+    "documentName": "कागजातको नाम",
+    "fileType": "फाईलको प्रकार",
+    "size": "फाईल साईज ",
+    "fileName": "फाईलको नाम"
+  },
+  "tableFilter": {
+    "ascending": "सुरुबाट",
+    "descending": "अन्त्यबाट",
+    "sort": "क्रमबद्ध",
+    "dateTo": "मिति सम्म",
+    "dateFrom": "मिति देखि"
+  },
+  "errors": {
+    "minZero": "न्यूनतम शून्य हुनुपर्छ",
+    "required": "आवाश्यक",
+    "onlyDigit": "केवल अंकहरू स्वीकार गरिन्छ",
+    "validPhoneNumber": "कृपया मान्य फोन नम्बर प्रविष्ट गर्नुहोस्",
+    "maxTenDigit": "अधिकतम १० अंक",
+    "minNineDigit": "न्यूनतम ९ अंक",
+    "mustBeAtLeastOne": "कम्तिमा एक हुनुपर्छ"
+  },
+
+  "months": {
+    "Baisakh": "वैशाख",
+    "Jestha": "जेठ",
+    "Asar": "असार",
+    "Shrawan": "श्रावण",
+    "Bhadau": "भदौ",
+    "Asoj": "असोज",
+    "Kartik": "कात्तिक",
+    "Mansir": "मंसिर",
+    "Poush": "पौष",
+    "Magh": "माघ",
+    "Falgun": "फागुन",
+    "Chaitra": "चैत"
+  },
+  "document_category": {
+    "label": "कागजात कोटि",
+    "requiredValidation": "कागजात कोटि आवश्यक छ।"
+  },
+  "parent_group": {
+    "label": "अभिभावक कागजात समूह",
+    "requiredValidation": "अभिभावक कागजात समूह आवश्यक छ।"
+  },
+  "isMinimumRequired": {
+    "label": "न्यूनतम आवश्यक छ।",
+    "requiredValidation": "आवश्यक छ।"
+  },
+  "honorific_title": {
+    "label": "सम्मानजनक उपाधि",
+    "requiredValidation": "सम्मानजनक शीर्षक आवश्यक छ।"
+  },
+  "full_name": {
+    "label": "पुरा नाम",
+    "requiredValidation": "पूरा नाम आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "alphabetValidation": "अक्षरहरू मात्र मान्य छन्",
+
+  "first_name": {
+    "label": "नाम",
+    "requiredValidation": "नाम आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "firm_name_en": {
+    "label": "फर्म नाम(अंग्रेजी)",
+    "requiredValidation": "First Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "firm_name_np": {
+    "label": "फर्म नाम(नेपाली)",
+    "requiredValidation": "First Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "bank_account_number": {
+    "label": "खाता नम्बर",
+    "requiredValidation": " खाता नम्बर आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम १६ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम १६ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "branch": {
+    "label": "साखा",
+    "requiredValidation": " साखा आवश्यक छ।"
+  },
+  "middle_name": {
+    "label": "बीचको नाम",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "last_name": {
+    "label": "थर",
+    "requiredValidation": "थर आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "last_name_en": {
+    "label": "थर(अंग्रेजी)"
+  },
+  "last_name_np": {
+    "label": "थर(नेपाली)"
+  },
+  "gender": {
+    "label": "लिङ्ग",
+    "requiredValidation": "लिङ्ग आवश्यक छ।"
+  },
+  "has_bank_account": {
+    "label": "के तपाइँ अवस्थित ADBL ग्राहक हुनुहुन्छ ?",
+    "requiredValidation": "यो क्षेत्र आवश्यक छ।"
+  },
+  "date_of_birth": {
+    "label": "जन्म मिति",
+    "requiredValidation": "जन्म मिति आवश्यक छ।"
+  },
+  "document_title_list": {
+    "label": "कागजात सूची",
+    "validation": "कम्तिमा एक कागजात आवश्यक छ।",
+    "requiredValidation": "कम्तिमा एक कागजात आवश्यक छ।",
+    "min_1": "कम्तिमा एक कागजात आवश्यक छ।"
+  },
+  "bank_join_date": {
+    "label": "सामेल भएको मिति (अनिश्चित)",
+    "requiredValidation": "सामेल भएको मिति आवश्यक छ।"
+  },
+  "landline_number": {
+    "label": "ल्यान्डलाइन नम्बर",
+    "requiredValidation": "ल्यान्डलाइन नम्बर आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम ९ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम ९ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "grandfather_name": {
+    "label": "हजुरबुबाको नाम",
+    "requiredValidation": "हजुरबुबाको नाम आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "father_name": {
+    "label": "बुबाको नाम",
+    "requiredValidation": "बुबाको नाम आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "spouse_name": {
+    "label": "दम्पतिको नाम",
+    "requiredValidation": "दम्पतिको नाम आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+
+  "father_in_law_name": {
+    "label": "ससुराको नाम",
+    "requiredValidation": "ससुराको नाम आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+
+  "dependent_parent_number": {
+    "label": "आश्रितको संख्या (अभिभावक)",
+    "requiredValidation": "आश्रितको संख्या (अभिभावक) आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "dependent_child_number": {
+    "label": "आश्रितको संख्या (बच्चाहरू)",
+    "requiredValidation": "आश्रितको संख्या (बच्चाहरू) आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "department": {
+    "label": "विभाग",
+    "requiredValidation": "विभाग  आवश्यक छ।"
+  },
+
+  "gross_monthly_salary": {
+    "label": "वार्षिक सकल तलब रु.",
+    "requiredValidation": "वार्षिक सकल तलब आवश्यक छ।"
+  },
+  "net_monthly_salary": {
+    "label": "खुद मासिक तलब रु.",
+    "requiredValidation": "खुद मासिक तलब आवश्यक छ।"
+  },
+  "net_profit_from_business": {
+    "label": "व्यापारबाट खुद नाफा रु.",
+    "requiredValidation": "व्यवसायबाट शुद्ध लाभ आवश्यक छ।"
+  },
+  "rental_income": {
+    "label": "भाडा आम्दानी रु.",
+    "requiredValidation": "भाडा आम्दानी आवश्यक छ।"
+  },
+  "dividend": {
+    "label": "लाभांश रु.",
+    "requiredValidation": "लाभांश आवश्यक छ।"
+  },
+  "interest_income": {
+    "label": "ब्याज आम्दानी रु.",
+    "requiredValidation": "याज आम्दानी आवश्यक छ।"
+  },
+  "others": {
+    "label": "अरू (उल्लेख गर्नुहोस)",
+    "requiredValidation": "अरू आवश्यक छ।"
+  },
+  "others_income": {
+    "label": "अरू आम्दानी रु.",
+    "requiredValidation": "अरू आय आवश्यक छ।"
+  },
+  "other_expense": {
+    "label": "अन्य खर्च रु.",
+    "requiredValidation": "अन्य खर्च आवश्यक छ।"
+  },
+  "total_estimated_assets": {
+    "label": "कुल अनुमानित सम्पत्ति मूल्य रु.",
+    "requiredValidation": "कुल अनुमानित सम्पत्तिआवश्यक छ।"
+  },
+  "total_liabilities": {
+    "label": "कुल दायित्व",
+    "requiredValidation": "कुल दायित्व आवश्यक छ।"
+  },
+
+  "company_name": {
+    "label": "कम्पनीको नाम",
+    "requiredValidation": "कम्पनीको नाम आवश्यक छ।"
+  },
+
+  "position": {
+    "label": "स्थिति",
+    "requiredValidation": "स्थिति आवश्यक छ।"
+  },
+  "occupation_name": {
+    "label": "पेशाको नाम",
+    "requiredValidation": "पेशाको नाम आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "experience": {
+    "label": "अनुभव",
+    "requiredValidation": "अनुभव आवश्यक छ।"
+  },
+  "remaining_years": {
+    "label": "बाँकी वर्ष",
+    "requiredValidation": "बाँकी वर्ष आवश्यक छ।"
+  },
+  "remarks": {
+    "label": "टिप्पणी",
+    "requiredValidation": "टिप्पणी आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "time_interval_of_income_generation": {
+    "label": "आय उत्पादन को समय अन्तराल",
+    "requiredValidation": "आय उत्पादन आवश्यक छ।"
+  },
+  "self_employment_name": {
+    "label": "स्वरोजगार नाम",
+    "requiredValidation": "स्वरोजगारको नाम आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "user": {
+    "label": "प्रयोगकर्ता",
+    "requiredValidation": "प्रयोगकर्ताको नाम आवश्यक छ।"
+  },
+  "other": {
+    "label": "अन्य",
+    "requiredValidation": "अन्य आवश्यक छ।"
+  },
+  "self_employment": {
+    "label": "स्वरोजगार",
+    "requiredValidation": "स्वरोजगार आवश्यक छ।",
+    "minLengthValidation": "न्यूनतम २ वर्ण आवश्यक छ।",
+    "maxLengthValidation": "अधिकतम २५५ वर्णहरूलाई अनुमति दिइएको छ"
+  },
+  "travel": {
+    "label": "यात्रा रु.",
+    "requiredValidation": "यात्रा रु. आवश्यक छ।"
+  },
+  "insurance": {
+    "label": "बीमा रु.",
+    "requiredValidation": "बीमा रु. आवश्यक छ।"
+  },
+  "rent": {
+    "label": "भाडा रु.",
+    "requiredValidation": "भाडा रु. आवश्यक छ।"
+  },
+  "living_expense": {
+    "label": "बस्ने खर्च रु.",
+    "requiredValidation": "बस्ने खर्च रु. आवश्यक छ।"
+  },
+  "telephone_expense": {
+    "label": "टेलिफोन, ग्यास, बिजुली रु.",
+    "requiredValidation": "टेलिफोन, ग्यास, बिजुली रु. आवश्यक छ।"
+  },
+  "land_tax": {
+    "label": "जग्गा निर्माण कर रु.",
+    "requiredValidation": "कर रु. आवश्यक छ।"
+  },
+  "income_tax": {
+    "label": "वार्षिक आयकर रु.",
+    "requiredValidation": "आयकर रु. आवश्यक छ।"
+  },
+  "emi": {
+    "label": "विद्यमान ऋण ईएमआई (यदि कुनै हो भने) रु.",
+    "requiredValidation": "ईएमआई रु. आवश्यक छ।"
+  },
+  "tenure_time": {
+    "label": "कार्यकाल समय",
+    "positive_validation": "सकारात्मक मा हुनुपर्छ",
+    "requiredValidation": "कार्यकाल समय आवश्यक छ।",
+    "min_1": "कम्तिमा एक कार्यकाल आवश्यक छ।"
+  },
+  "tenure_unit": {
+    "label": "कार्यकाल इकाई",
+    "requiredValidation": "कार्यकाल एकाइ आवश्यक छ।"
+  },
+  "interest": {
+    "label": "ब्याज",
+    "positive_validation": "सकारात्मक मा हुनुपर्छ",
+    "requiredValidation": "ब्याज दर आवश्यक छ।"
+  },
+  "oldPassword": {
+    "label": "पुरानो पासवर्ड",
+    "requiredValidation": "पुरानो पासवर्ड आवश्यक छ।"
+  },
+  "newPassword": {
+    "label": "नया पासवर्ड",
+    "requiredValidation": "नया पासवर्ड आवश्यक छ।"
+  },
+  "confirmNewPassword": {
+    "label": "नयाँ पासवर्ड पुष्टि गर्नुहोस्",
+    "requiredValidation": "नया पासवर्ड आवश्यक छ।"
+  },
+  "changePasswordDescription": {
+    "label": " पासवर्ड परिवर्तन गर्नुहोस्। बलियो पासवर्डको साथ आफ्नो सुरक्षा सुधार गर्नुहोस्।"
+  },
+  "forgotPasswordDescription": {
+    "label": "आफ्नो नयाँ पासवर्ड प्राप्त गर्न तल आफ्नो इमेल ठेगाना प्रविष्ट गर्नुहोस्:"
+  },
+  "natureOfLoan": {
+    "label": "ऋण को प्रकृति"
+  },
+  "bank_name": {
+    "label": "बैंक नाम",
+    "requiredValidation": "बैंकको नाम आवश्यक छ।"
+  },
+  "current_assets": {
+    "label": "हालको सम्पत्ति",
+    "requiredValidation": "हालको सम्पत्ति आवश्यक छ।"
+  },
+  "current_liabilities": {
+    "label": "चालु दायित्व",
+    "requiredValidation": "हालको दायित्व आवश्यक छ।"
+  },
+  "existing_loan_amount": {
+    "label": "विद्यमान ऋण रकम",
+    "requiredValidation": "अवस्थित ऋण रकम आवश्यक छ।"
+  },
+  "net_profit": {
+    "label": "कुल नाफा",
+    "requiredValidation": "शुद्ध लाभ आवश्यक छ।"
+  },
+  "sales": {
+    "label": "बिक्री",
+    "requiredValidation": "बिक्री आवश्यक छ।"
+  },
+  "total_assets": {
+    "label": "कुल सम्पत्ति",
+    "requiredValidation": "कुल सम्पत्ति आवश्यक छ।"
+  },
+  "total_equity": {
+    "label": "कुल इक्विटी",
+    "requiredValidation": "कुल इक्विटी आवश्यक छ।"
+  },
+  "eligibility": {
+    "label": "योग्यता"
+  },
+  "eligibility_title": {
+    "label": "योग्यता शीर्षक"
+  },
+  "eligibility_score": {
+    "label": "योग्यता स्कोर"
+  },
+  "cbs_id": {
+    "label": "CBS आईडी",
+    "requiredValidation": "CBS आईडी आवश्यक छ"
+  },
+  "cbs_name": {
+    "label": "CBS नाम",
+    "requiredValidation": "CBS नाम आवश्यक छ"
+  },
+  "district": {
+    "label": "जिल्ला",
+    "requiredValidation": "जिल्ला आवश्यक छ"
+  },
+  "marital_status": {
+    "label": "वैवाहिक स्थिति",
+    "requiredValidation": "वैवाहिक स्थिति आवश्यक छ"
+  },
+  "municipality": {
+    "label": "नगरपालिका",
+    "requiredValidation": "नगरपालिका आवश्यक छ"
+  }
+}

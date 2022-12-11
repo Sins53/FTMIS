@@ -1,0 +1,495 @@
+{
+  "honorific_title": {
+    "label": "Honorific Title",
+    "requiredValidation": "Honorific Title is required"
+  },
+  "full_name": {
+    "label": "Full Name",
+    "requiredValidation": "Full Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "alphabetValidation": "Only alphabets are allowed for this field",
+
+  "first_name": {
+    "label": "First Name",
+    "requiredValidation": "First Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "firm_name_en": {
+    "label": "Firm Name(EN)",
+    "requiredValidation": "First Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "firm_name_np": {
+    "label": "Firm Name(NP)",
+    "requiredValidation": "First Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "nameEn": {
+    "label": "Name(EN)",
+    "requiredValidation": " Name(EN) is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "nameNp": {
+    "label": "Name(NP)",
+    "requiredValidation": " Name(NP) is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "address": {
+    "label": "Address",
+    "requiredValidation": " Address is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "email": {
+    "label": "Email",
+    "requiredValidation": " Email is required",
+    "invalidEmail": " Invalid Email"
+  },
+  "username": {
+    "label": "Username",
+    "requiredValidation": " Username is required"
+  },
+  "password": {
+    "label": "Password",
+    "requiredValidation": " Password is required"
+  },
+  "rememberme": {
+    "label": "Remember Me"
+  },
+  "mobile": {
+    "label": "Mobile Number",
+    "requiredValidation": " Mobile Number is required",
+    "minLengthValidation": "Mobile Number should be of 10 characters"
+  },
+  "terms_and_condition": {
+    "label": "I accept all the terms and condition",
+    "requiredValidation": "Terms and conditions is required"
+  },
+  "captcha": {
+    "label": "Enter captcha"
+  },
+  "designation": {
+    "label": "Designation",
+    "requiredValidation": "Designation is required"
+  },
+  "employee": {
+    "label": "Employee Id",
+    "requiredValidation": "Employee Id is required"
+  },
+  "bank_account_number": {
+    "label": "Account Number",
+    "requiredValidation": " Account Number is required",
+    "minLengthValidation": "Minimum 16 characters required",
+    "maxLengthValidation": "Maximum 16 characters allowed"
+  },
+  "province": {
+    "label": "Province",
+    "requiredValidation": " Province is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "province_np": {
+    "label": "Province(NP)",
+    "requiredValidation": " Province is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "province_num": {
+    "requiredValidation": " Province Number is required",
+    "minLengthValidation": "Minimum 1 characters required"
+  },
+  "head_province_office": {
+    "label": "Head Office",
+    "requiredValidation": "Head Office is required"
+  },
+  "province_office": {
+    "label": "Province Office",
+    "requiredValidation": "Province Office is required"
+  },
+  "branch": {
+    "label": "Branch",
+    "requiredValidation": " Branch is required"
+  },
+  "branchCode": {
+    "label": "Branch Code",
+    "requiredValidation": " Branch Code is required",
+    "minLengthValidation": "4 characters required",
+    "maxLengthValidation": "Only 4 characters allowed"
+  },
+  "parent_organization": {
+    "label": "Parent Organization",
+    "requiredValidation": "Parent Organization  is required"
+  },
+  "employment_name": {
+    "label": "Employment Name",
+    "requiredValidation": "Employment Name is required"
+  },
+  "description_en": {
+    "label": "Description(EN)",
+    "requiredValidation": "Description(EN) is required",
+    "minLengthValidation": "Minimum 8 characters required"
+  },
+  "description_np": {
+    "label": "Description(NP)",
+    "requiredValidation": "Description(NP) is required",
+    "minLengthValidation": "Minimum 8 characters required"
+  },
+  "is_collateral_less": {
+    "label": "Is Collateral Less Loan?",
+    "requiredValidation": "Collateral Less Loan is required"
+  },
+  "middle_name": {
+    "label": "Middle Name",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "last_name": {
+    "label": "Last Name",
+    "requiredValidation": "Last Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "last_name_en": {
+    "label": "Last Name(EN)"
+  },
+  "last_name_np": {
+    "label": "Last Name(NP)"
+  },
+  "loan_category": {
+    "label": "Loan Category",
+    "requiredValidation": "Loan Category is required"
+  },
+  "loan_type": {
+    "label": "Loan Type",
+    "requiredValidation": "Loan Type is required"
+  },
+
+  "gender": {
+    "label": "Gender",
+    "requiredValidation": "Gender is required"
+  },
+  "has_bank_account": {
+    "label": "Are you an existing ADBL customer ?",
+    "requiredValidation": "This Field is required"
+  },
+  "date_of_birth": {
+    "label": "Date of Birth",
+    "requiredValidation": "Date of Birth is required"
+  },
+  "document_title_list": {
+    "label": "Document List",
+    "validation": "At least one Document must be selected",
+    "requiredValidation": "Document List is required",
+    "min_1": "At least one document is required"
+  },
+
+  "bank_join_date": {
+    "label": "Joined Date (Tentative)",
+    "requiredValidation": "Join Date is required"
+  },
+  "landline_number": {
+    "label": "Landline Number",
+    "requiredValidation": "Landline Number is required",
+    "minLengthValidation": "Minimum 9 characters required",
+    "maxLengthValidation": "Maximum 9 characters allowed"
+  },
+  "grandfather_name": {
+    "label": "Grandfather's Name",
+    "requiredValidation": "GrandFather's Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "father_name": {
+    "label": "Father's Name",
+    "requiredValidation": "Father's Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "spouse_name": {
+    "label": "Spouse Name",
+    "requiredValidation": "Spouse Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+
+  "father_in_law_name": {
+    "label": "Father in Law Name",
+    "requiredValidation": "Father in Law Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+
+  "dependent_parent_number": {
+    "label": "No of Dependent (Parent)",
+    "requiredValidation": "No of Dependent (Parent) is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "dependent_child_number": {
+    "label": "No of Dependent (Children)",
+    "requiredValidation": "No of Dependent (Children) is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "department": {
+    "label": "Department",
+    "requiredValidation": "Department is required"
+  },
+
+  "gross_monthly_salary": {
+    "label": "Annual Gross Salary Rs.",
+    "requiredValidation": "Annual Gross Salary is required"
+  },
+  "net_monthly_salary": {
+    "label": "Net Monthly Salary Rs.",
+    "requiredValidation": "Net Monthly Salaryis required"
+  },
+  "net_profit_from_business": {
+    "label": "Net Profit From Business Rs.",
+    "requiredValidation": "Net Profit From Business is required"
+  },
+  "rental_income": {
+    "label": "Rental Income Rs.",
+    "requiredValidation": "Rental Income is required"
+  },
+  "dividend": {
+    "label": "Dividend Rs.",
+    "requiredValidation": "Dividend is required"
+  },
+  "interest_income": {
+    "label": "Interest Income Rs.",
+    "requiredValidation": "Interest Income is required"
+  },
+  "others": {
+    "label": "Others (Specify)",
+    "requiredValidation": "Others is required"
+  },
+  "others_income": {
+    "label": "Other Income Rs.",
+    "requiredValidation": "Other Income is required"
+  },
+  "other_expense": {
+    "label": "Other Expense Rs.",
+    "requiredValidation": "Other Expense is required"
+  },
+  "total_estimated_assets": {
+    "label": "Total Estimated Assets Value Rs.",
+    "requiredValidation": "Total Estimated Assets Value is required"
+  },
+  "total_liabilities": {
+    "label": "Total Liabilities",
+    "requiredValidation": "Total Estimated Assets Value is required"
+  },
+
+  "company_name": {
+    "label": "Company Name",
+    "requiredValidation": "Company Name is required"
+  },
+
+  "position": {
+    "label": "Position",
+    "requiredValidation": "Position is required"
+  },
+  "occupation_name": {
+    "label": "Occupation Name",
+    "requiredValidation": "Occupation Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+
+  "experience": {
+    "label": "Experience",
+    "requiredValidation": "Experience is required"
+  },
+  "remaining_years": {
+    "label": " Remaining Years",
+    "requiredValidation": "Remaining Years is required"
+  },
+  "remarks": {
+    "label": "Remarks ",
+    "requiredValidation": "Remarks is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "time_interval_of_income_generation": {
+    "label": "Time Interval of Income Generation",
+    "requiredValidation": "Time Interval is required"
+  },
+  "self_employment_name": {
+    "label": "Self Employment Name ",
+    "requiredValidation": "Self Employment Name is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "user": {
+    "label": "User",
+    "requiredValidation": "User is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "other": {
+    "label": "Other",
+    "requiredValidation": "Other is required"
+  },
+  "self_employment": {
+    "label": "Self Employment ",
+    "requiredValidation": "Self Employment is required",
+    "minLengthValidation": "Minimum 2 characters required",
+    "maxLengthValidation": "Maximum 255 characters allowed"
+  },
+  "travel": {
+    "label": "Travel Rs.",
+    "requiredValidation": "Travel Rs. is required"
+  },
+  "insurance": {
+    "label": "Insurance Rs.",
+    "requiredValidation": "Insurance Rs. is required"
+  },
+  "rent": {
+    "label": "Rent Rs.",
+    "requiredValidation": "Rent Rs. is required"
+  },
+  "living_expense": {
+    "label": "Living Expenses Rs.",
+    "requiredValidation": "Living Expenses Rs. is required"
+  },
+  "telephone_expense": {
+    "label": "Telephone,Gas,Electricity Rs.",
+    "requiredValidation": "Telephone,Gas,Electricity Rs. is required"
+  },
+  "land_tax": {
+    "label": "Land Building Tax Rs.",
+    "requiredValidation": "Tax Rs. is required"
+  },
+  "income_tax": {
+    "label": "Annual Income Tax Rs.",
+    "requiredValidation": "Income Tax Rs. is required"
+  },
+  "emi": {
+    "label": "Existing Loan EMI (If any) Rs.",
+    "requiredValidation": "EMI Rs. is required"
+  },
+  "document_category": {
+    "label": "Document Category",
+    "requiredValidation": "Document Category is required"
+  },
+  "parent_group": {
+    "label": "Parent Group",
+    "requiredValidation": "Parent Group is required"
+  },
+  "isMinimumRequired": {
+    "label": "Is Minimum Required",
+    "requiredValidation": "Is Minimum is required"
+  },
+  "tenure_time": {
+    "label": "Tenure Time",
+    "validation": "Must be in positive",
+    "requiredValidation": "Tenure Time is required",
+    "min_1": "At least one tenure is required"
+  },
+  "tenure_unit": {
+    "label": "Tenure Unit",
+    "requiredValidation": "Tenure Unit is required"
+  },
+  "interest": {
+    "label": "Interest",
+    "positive_validation": "Must be in positive",
+    "requiredValidation": "Interest Rate is required"
+  },
+  "changePasswordDescription": {
+    "label": " Change password. Improve your security with strong password."
+  },
+  "forgotPasswordDescription": {
+    "label": " Enter your email address below to receive your new password:"
+  },
+
+  "oldPassword": {
+    "label": "Old Password",
+    "requiredValidation": "Old Password is required"
+  },
+  "newPassword": {
+    "label": "New Password",
+    "requiredValidation": "New Password is required"
+  },
+  "confirmNewPassword": {
+    "label": "Confirm New Password",
+    "requiredValidation": "New Password is required"
+  },
+  "natureOfLoan": {
+    "label": "Nature of Loan"
+  },
+  "bank_name": {
+    "label": "Bank Name",
+    "requiredValidation": "Bank Name is required"
+  },
+  "current_assets": {
+    "label": "Current Assets",
+    "requiredValidation": "Current Assets is required"
+  },
+  "current_liabilities": {
+    "label": "Current Liabilities",
+    "requiredValidation": "Current Liabilities is required"
+  },
+  "existing_loan_amount": {
+    "label": "Existing Loan Amount",
+    "requiredValidation": "Existing Loan Amount is required"
+  },
+  "net_profit": {
+    "label": "Net Profit",
+    "requiredValidation": "Net Profit is required"
+  },
+  "sales": {
+    "label": "Sales",
+    "requiredValidation": "Sales is required"
+  },
+  "total_assets": {
+    "label": "Total Assets",
+    "requiredValidation": "Total Assets is required"
+  },
+  "total_equity": {
+    "label": "Total Equity",
+    "requiredValidation": "Total Equity is required"
+  },
+  "eligibility": {
+    "label": "Eligibility"
+  },
+  "eligibility_title": {
+    "label": "Eligibility Title"
+  },
+  "eligibility_score": {
+    "label": "Eligibility Score"
+  },
+  "latitude": {
+    "label": "Latitude"
+  },
+  "longitude": {
+    "label": "Longitude"
+  },
+  "cbs_id": {
+    "label": "CBS Id",
+    "requiredValidation": "CBS Id is Required"
+  },
+  "cbs_name": {
+    "label": "CBS Name",
+    "requiredValidation": "CBS Name is Required"
+  },
+  "district": {
+    "label": "District",
+    "requiredValidation": "District is Required"
+  },
+  "marital_status": {
+    "label": "Marital Status",
+    "requiredValidation": "Marital Status is Required"
+  },
+  "municipality": {
+    "label": "Municipality",
+    "requiredValidation": "Municipality is Required"
+  }
+}

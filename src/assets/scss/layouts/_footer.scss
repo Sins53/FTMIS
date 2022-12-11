@@ -1,0 +1,15 @@
+.footer {
+  &-01 {
+    // border-top: 1px solid $gray-65;
+    padding: 1rem 3.5rem;
+    // background-color: $navy-40;
+
+    width: var(--app-max-width);
+    margin: auto;
+    // display: flex;
+    // // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // width: 100%;
+  }
+}

@@ -17,6 +17,7 @@ import PeriodicPlan from './Indicators/PeriodicPlan/PeriodicPlan';
 import NetAdmissionRate from './Indicators/NetAdmissionRate/NetAdmissionRate';
 import StudentConsistencyRate from './Indicators/StudentConsistencyRate/StudentConsistencyRate';
 import SeePerformance from './Indicators/SeePerformance/SeePerformance';
+import PregnancyTest from './Indicators/PregnancyTest/PregnancyTest';
 
 const FedToLocalPerformanceBasedIndicators = () => {
   const [activeTab, setActiveTab] = useState<string>('indicator36');
@@ -44,10 +45,9 @@ const FedToLocalPerformanceBasedIndicators = () => {
     { tab: 'indicator31', component: NetAdmissionRate },
     { tab: 'indicator32', component: StudentConsistencyRate },
     { tab: 'indicator33', component: SeePerformance },
-    { tab: 'indicator34', component: DeleteThis },
+    { tab: 'indicator34', component: PregnancyTest },
     { tab: 'indicator35', component: DeleteThis }
   ];
-  console.log(activeTab, 'qwe');
   return (
     <Layout.Main>
       <Layout.Header backToList>

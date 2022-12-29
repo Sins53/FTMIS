@@ -9,6 +9,7 @@ import periodicPlan from './periodicPlan';
 import netAdmissionRate from './netAdmissionRate';
 import studentConsistencyRate from './studentConsistencyRate';
 import seePerformance from './seePerformance';
+import pregnancyTest from './pregnancyTest';
 
 const prefix = 'equalization_grant';
 
@@ -50,5 +51,6 @@ export default {
   periodicPlan,
   netAdmissionRate,
   studentConsistencyRate,
-  seePerformance
+  seePerformance,
+  pregnancyTest
 };

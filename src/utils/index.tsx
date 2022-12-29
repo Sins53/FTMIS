@@ -102,6 +102,10 @@ export enum BUDGETENUM {
   'Province to Localbody' = 'prov_localbody'
 }
 
+export enum GRANTTYPE {
+  'Performance' = 'performance',
+  'Formulae' = 'formula'
+}
 export function getEnumKeyByEnumValue<T extends { [index: string]: string }>(
   myEnum: T,
   enumValue: string

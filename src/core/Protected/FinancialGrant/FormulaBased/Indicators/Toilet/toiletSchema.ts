@@ -1,6 +1,6 @@
 import { CustomResponse } from '@/helper/default-action';
 import * as Yup from 'yup';
-import { FiscalYear, Indicator } from '../indicatorsCommonSchema';
+import { FiscalYear, Indicator, Province } from '../indicatorsCommonSchema';
 
 export interface ToiletInitialValueProps {
   data: Array<{
@@ -32,7 +32,7 @@ export const ToiletValidationSchema = Yup.object({
 export interface ToiletDetailsData {
   id: number;
   fiscal_year: FiscalYear;
-  province: number;
+  province: Province;
   indicator: Indicator;
   toilet_availability_index: string;
   obtained_marks: string;

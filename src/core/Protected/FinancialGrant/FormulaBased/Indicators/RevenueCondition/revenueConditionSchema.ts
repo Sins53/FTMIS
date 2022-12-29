@@ -1,10 +1,10 @@
 import { CustomResponse } from '@/helper/default-action';
-import { FiscalYear, Indicator } from '../indicatorsCommonSchema';
+import { FiscalYear, Indicator, Province } from '../indicatorsCommonSchema';
 
 export interface RevenueConditionDetailData {
   id: number;
   fiscal_year: FiscalYear;
-  province: number;
+  province: Province;
   indicator: Indicator;
   obtained_marks: string;
 }

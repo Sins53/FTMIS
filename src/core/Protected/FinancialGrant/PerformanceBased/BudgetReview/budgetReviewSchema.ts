@@ -10,21 +10,13 @@ export interface BudgetReviewInitialValueProps {
 }
 
 export const BudgetReviewInitialValue: BudgetReviewInitialValueProps = {
-  data: [
-    { province: '', published_date: null, comply: '' },
-    { province: '', published_date: null, comply: '' },
-    { province: '', published_date: null, comply: '' },
-    { province: '', published_date: null, comply: '' },
-    { province: '', published_date: null, comply: '' },
-    { province: '', published_date: null, comply: '' },
-    { province: '', published_date: null, comply: '' }
-  ]
+  data: []
 };
 
 export const BudgetReviewValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      comply: Yup.string().required('req')
+      comply: Yup.string().required('Choose either Yes / No')
     })
   )
 });

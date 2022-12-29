@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 
 interface Budget {
   budget: BudgetData;
+  has_minimum_grant: boolean;
 }
 
 export interface BudgetStatusData {
@@ -30,8 +31,6 @@ export const BudgetInitialValues: BudgetFormProps = {
 };
 
 export const BudgetValidationSchema = Yup.object({
-  name: Yup.string().required('Budget Name is required'),
-  fiscal_year: Yup.mixed().required('Fiscal Year is required').nullable(),
   amount: Yup.number().required('Amount is required')
 });
 

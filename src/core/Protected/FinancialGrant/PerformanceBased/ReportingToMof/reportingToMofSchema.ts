@@ -10,21 +10,13 @@ export interface ReportingToMofInitialValueProps {
 }
 
 export const ReportingToMofInitialValue: ReportingToMofInitialValueProps = {
-  data: [
-    { province: '', reporting_date: null, comply: '' },
-    { province: '', reporting_date: null, comply: '' },
-    { province: '', reporting_date: null, comply: '' },
-    { province: '', reporting_date: null, comply: '' },
-    { province: '', reporting_date: null, comply: '' },
-    { province: '', reporting_date: null, comply: '' },
-    { province: '', reporting_date: null, comply: '' }
-  ]
+  data: []
 };
 
 export const ReportingToMofValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      comply: Yup.string().required('req')
+      comply: Yup.string().required('Choose either Yes / No')
     })
   )
 });

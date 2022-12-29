@@ -21,6 +21,7 @@
       color: white;
     }
   }
+
   &:focus {
     box-shadow: none;
   }
@@ -39,7 +40,7 @@
     [class^='ic-'],
     [class*=' ic-'],
     svg {
-      @include rfs(14px);
+      @include rfs(12px);
       vertical-align: middle;
     }
 

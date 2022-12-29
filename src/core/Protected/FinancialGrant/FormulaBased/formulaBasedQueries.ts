@@ -10,26 +10,35 @@ const {
   getFormulaBasedGrantFinalResult
 } = apiList.equalizationGrant.formulaBased;
 
-export const useFormulaGrantData = () =>
-  useQuery([getFormulaBasedGrant.queryKeyName], () => performApiAction<any>(getFormulaBasedGrant), {
-    select: (data) => {
-      return data.data?.data;
-    },
-    keepPreviousData: true
-  });
+export const useFormulaGrantData = (module?: string) =>
+  useQuery(
+    [getFormulaBasedGrant.queryKeyName],
+    () =>
+      performApiAction<any>(getFormulaBasedGrant, {
+        params: { module: module }
+      }),
+    {
+      select: (data) => {
+        return data.data?.data;
+      },
+      keepPreviousData: true
+    }
+  );
 
-export const useFormulaGrantCreator = (isEditable?: boolean) => {
+export const useFormulaGrantCreator = (isEditable?: boolean, module?: string) => {
   const queryClient = useQueryClient();
   return useMutation(
     (requestData: formulaGrantInitialValueProp) => {
       if (isEditable && requestData.id) {
         return performApiAction(updateFormulaBasedGrant, {
           requestData,
-          pathVariables: { id: requestData.id }
+          pathVariables: { id: requestData.id },
+          params: { module: module }
         });
       } else {
         return performApiAction(createFormulaBasedGrant, {
-          requestData
+          requestData,
+          params: { module: module }
         });
       }
     },

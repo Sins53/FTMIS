@@ -4,74 +4,57 @@ import Button from '@/components/derived/Buttons/Buttons';
 import FormikValidationError from '@/components/FormikValidationError/FormikValidationError';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from '@/components/utils';
 import { useFormik } from 'formik';
+import { t } from 'i18next';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Spinner } from 'reactstrap';
 import { useFiscalYearData } from '../MasterData/FiscalYear/fiscalYearQueries';
 import { FiscalYearResponseData } from '../MasterData/FiscalYear/fiscalYearSchema';
 import { useBudgetCreate } from './financialGrantQueries';
-import { BudgetFormProps, BudgetInitialValues } from './financialGrantSchema';
+import { BudgetFormProps, BudgetValidationSchema } from './financialGrantSchema';
 
 function FinancialGrantForm({
   modal,
   toggle,
   grant,
   isEdit,
-  setIsEdit,
-  formData,
-  setFormData
+  formData
 }: {
   modal: boolean;
   toggle: () => void;
   grant: string;
   isEdit: boolean;
-  setIsEdit: Dispatch<SetStateAction<boolean>>;
   formData: BudgetFormProps;
-  setFormData: Dispatch<SetStateAction<BudgetFormProps>>;
+  setModal?: Dispatch<SetStateAction<boolean>>;
 }) {
   const [activeFiscalYear, setActiveFiscalYear] = useState<FiscalYearResponseData>();
   const { data: fiscalYearData } = useFiscalYearData({
     escape_pg: true
   });
-  const {
-    mutate: budgetMutate,
-    isSuccess: budgetCreateSuccess,
-    isLoading: budgetCreateLoading
-  } = useBudgetCreate(isEdit);
-
+  const { mutate: budgetMutate, isLoading: budgetCreateLoading } = useBudgetCreate(isEdit);
   useEffect(() => {
     const activeYear = fiscalYearData?.records?.filter((data) => data.is_active);
     activeYear && setActiveFiscalYear(activeYear[0]);
   }, [fiscalYearData]);
 
-  const { values, errors, handleChange, handleSubmit, touched, resetForm } = useFormik({
+  const { values, errors, handleChange, handleSubmit, touched } = useFormik({
     enableReinitialize: true,
     initialValues: formData,
-    onSubmit: (values: BudgetFormProps) => {
-      budgetMutate({ ...values, name: grant });
+    validationSchema: BudgetValidationSchema,
+    onSubmit: (value: BudgetFormProps) => {
+      budgetMutate(
+        { ...value, name: grant },
+        {
+          onSuccess: () => {
+            toggle();
+          }
+        }
+      );
     }
   });
-
-  useEffect(() => {
-    if (budgetCreateSuccess) {
-      toggle();
-      resetForm();
-      setFormData(BudgetInitialValues);
-      setIsEdit(false);
-    }
-  }, [budgetCreateSuccess]);
-
-  useEffect(() => {
-    if (!modal) {
-      setIsEdit(false);
-      resetForm();
-    }
-  }, [toggle]);
-
   return (
-    <Modal isOpen={modal} toggle={toggle}>
+    <Modal isOpen={modal} toggle={toggle} size="sm">
       <ModalHeader toggle={toggle}>Setup Budget</ModalHeader>
       <form
-        action=""
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault();
           handleSubmit();
@@ -90,11 +73,11 @@ function FinancialGrantForm({
           </Box>
         </ModalBody>
         <ModalFooter>
-          <Button className="btn btn-outline-secondary" onClick={toggle}>
-            Cancel
+          <Button className="btn btn-outline-primary" type="button" onClick={toggle}>
+            {t('common:buttons.cancel')}
           </Button>
           <Button className="btn btn-primary" type="submit">
-            {budgetCreateLoading ? <Spinner size={'sm'} /> : 'Save'}
+            {budgetCreateLoading ? <Spinner size={'sm'} /> : t('common:buttons.save')}
           </Button>
         </ModalFooter>
       </form>

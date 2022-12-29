@@ -25,7 +25,7 @@ const formulaBased = {
     requestMethod: RequestMethod.POST
   },
   updateFormulaBasedGrant: {
-    controllerName: prefix + '/formula-based-grant',
+    controllerName: prefix + '/formula-based-grant/{id}',
     queryKeyName: 'UPDATE_FORMULA_BASED_GRANT',
     requestBodyType: RequestBodyType.AUTH,
     requestMethod: RequestMethod.PUT

@@ -11,6 +11,7 @@ const Occupation = lazy(() => import('@/core/Protected/MasterData/Occupation'));
 const ProvinceSetup = lazy(() => import('@/core/Protected/MasterData/ProvinceSetup/index'));
 const FiscalYear = lazy(() => import('@/core/Protected/MasterData/FiscalYear/index'));
 const LocalGovernment = lazy(() => import('@/core/Protected/MasterData/LocalGovernment'));
+const IndicatorSetup = lazy(() => import('@/core/Protected/MasterData/IndicatorSetup'));
 
 const root = '/master/';
 
@@ -23,7 +24,8 @@ export const masterConfigurationPath = {
   occupation: root + 'occupation',
   provinceSetup: root + 'province-setup',
   fiscalYear: root + 'fiscal-year',
-  localGovernment: root + 'local-government-setup'
+  localGovernment: root + 'local-government-setup',
+  indicatorSetup: root + 'indicator-setup'
 };
 export const masterConfigurationRoutes: RouteProperties = {
   path: root,
@@ -79,6 +81,11 @@ export const masterConfigurationRoutes: RouteProperties = {
     {
       path: masterConfigurationPath.localGovernment,
       element: LocalGovernment,
+      whiteList: true
+    },
+    {
+      path: masterConfigurationPath.indicatorSetup,
+      element: IndicatorSetup,
       whiteList: true
     }
   ]

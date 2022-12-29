@@ -5,7 +5,7 @@ import { useFiscalYearData } from '../MasterData/FiscalYear/fiscalYearQueries';
 import { StyledYearSelector } from '../MasterData/ProvinceSetup';
 
 interface FiscalProps {
-  fiscalYear: string | number;
+  fiscalYear: string | number | null;
   setFiscalYear: any;
 }
 

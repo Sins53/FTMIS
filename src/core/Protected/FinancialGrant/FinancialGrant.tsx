@@ -12,7 +12,6 @@ import { financialGrantPath } from '@/routes/protected/financialGrant';
 import { sanitizeURL } from '@/shared/utils';
 import { blue, gray } from '@/theme/colors';
 import { BUDGETENUM, getEnumKeyByEnumValue } from '@/utils';
-// import { budgetGrant } from '@/utils';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FinancialGrantForm from './FinancialGrantForm';
@@ -52,76 +51,82 @@ const FinancialGrant = () => {
                           <Text variant="h5" typeface="semiBold" color={gray[800]}>
                             {getEnumKeyByEnumValue(BUDGETENUM, grant[0])}
                           </Text>
-                          <UncontrolledDropdown>
-                            <DropdownToggle tag="a" role={'button'}>
-                              <i className="ic-more-vert"></i>
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                              <DropdownItem
-                                onClick={() => {
-                                  toggle();
-                                  setIsEdit(true);
-                                  setGrant(grant[0]);
-                                  setFormData({
-                                    id: Number(grant[1]?.budget?.id),
-                                    name: grant[0],
-                                    amount: grant[1]?.budget?.amount
-                                  });
-                                }}>
-                                Edit
-                              </DropdownItem>
-                              <DropdownItem
-                                onClick={() =>
-                                  navigate(
-                                    sanitizeURL(financialGrantPath.MinimalGrantView, {
-                                      name: grant[0]
-                                    })
-                                  )
-                                }>
-                                Minimum Grant
-                              </DropdownItem>
-                              <DropdownItem
-                                onClick={() =>
-                                  navigate(
-                                    sanitizeURL(financialGrantPath.PerformanceBased, {
+
+                          {grant[1]?.budget && (
+                            <UncontrolledDropdown>
+                              <DropdownToggle tag="a" role={'button'}>
+                                <i className="ic-more-vert"></i>
+                              </DropdownToggle>
+                              <DropdownMenu right>
+                                <DropdownItem
+                                  onClick={() => {
+                                    toggle();
+                                    setIsEdit(true);
+                                    setGrant(grant[0]);
+                                    setFormData({
+                                      id: Number(grant[1]?.budget?.id),
                                       name: grant[0],
-                                      id: grant[1].budget.id
-                                    })
-                                  )
-                                }>
-                                Performance Based
-                              </DropdownItem>
-                              <DropdownItem
-                                onClick={() =>
-                                  navigate(
-                                    sanitizeURL(financialGrantPath.FormulaBased, {
-                                      name: grant[0]
-                                    })
-                                  )
-                                }>
-                                Formulae Based
-                              </DropdownItem>
-                              <DropdownItem
-                                onClick={() =>
-                                  navigate(
-                                    sanitizeURL(financialGrantPath.FinalResultTable, {
-                                      name: grant[0]
-                                    })
-                                  )
-                                }>
-                                Total Grant
-                              </DropdownItem>
-                            </DropdownMenu>
-                          </UncontrolledDropdown>
+                                      amount: Number(grant[1]?.budget?.amount)
+                                    });
+                                  }}>
+                                  Edit
+                                </DropdownItem>
+                                <DropdownItem
+                                  onClick={() =>
+                                    navigate(
+                                      sanitizeURL(financialGrantPath.MinimalGrantView, {
+                                        name: grant[0],
+                                        id: grant[1].budget.id
+                                      })
+                                    )
+                                  }>
+                                  Minimum Grant
+                                </DropdownItem>
+                                {grant[1]?.has_minimum_grant && (
+                                  <>
+                                    <DropdownItem
+                                      onClick={() =>
+                                        navigate(
+                                          sanitizeURL(financialGrantPath.CommonPerformanceBased, {
+                                            name: grant[0],
+                                            id: grant[1].budget.id
+                                          })
+                                        )
+                                      }>
+                                      Performance Based
+                                    </DropdownItem>
+                                    <DropdownItem
+                                      onClick={() =>
+                                        navigate(
+                                          sanitizeURL(financialGrantPath.FormulaBased, {
+                                            name: grant[0],
+                                            id: grant[1].budget.id
+                                          })
+                                        )
+                                      }>
+                                      Formulae Based
+                                    </DropdownItem>
+                                    <DropdownItem
+                                      onClick={() =>
+                                        navigate(
+                                          sanitizeURL(financialGrantPath.FinalResultTable, {
+                                            name: grant[0]
+                                          })
+                                        )
+                                      }>
+                                      Total Grant
+                                    </DropdownItem>
+                                  </>
+                                )}
+                              </DropdownMenu>
+                            </UncontrolledDropdown>
+                          )}
                         </FlexBox>
                         <Box className="mt-5">
                           {grant[1]?.budget ? (
                             <>
                               <Text color={gray[48]} variant="h6">
-                                Rs. {grant[1].budget.amount}
-                              </Text>
-                              <Text variant="p" color={gray[48]} className="mt-2">
-                                for&nbsp;
+                                Rs.{grant[1].budget.amount} for&nbsp;
                                 {grant[1].budget.fiscal_year.name}
                               </Text>
                             </>
@@ -132,6 +137,7 @@ const FinancialGrant = () => {
                               className="mt-2"
                               onClick={() => {
                                 toggle();
+                                setFormData(BudgetInitialValues);
                                 setGrant(grant[0]);
                               }}>
                               <span role="button">
@@ -155,9 +161,8 @@ const FinancialGrant = () => {
         toggle={toggle}
         grant={grant}
         isEdit={isEdit}
-        setIsEdit={setIsEdit}
         formData={formData}
-        setFormData={setFormData}
+        setModal={setModal}
       />
     </>
   );

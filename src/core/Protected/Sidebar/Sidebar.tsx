@@ -71,7 +71,14 @@ function Sidebar() {
         <ItemContainer>
           <LeftContainer>
             <FlexBox align="center" className="flex-grow-1 mr-2">
-              <Image src={LogoImg} width={'100%'} height={'56'} className="logo-image-contain" />
+              <Image
+                role={'button'}
+                onClick={() => navigate('/')}
+                src={LogoImg}
+                width={'100%'}
+                height={'56'}
+                className="logo-image-contain"
+              />
             </FlexBox>
             {!toggle && (
               <Button className="btn cursor-pointer px-0" onClick={() => toggleSidebar()}>

@@ -1,6 +1,6 @@
 import { CustomResponse } from '@/helper/default-action';
 import * as Yup from 'yup';
-import { FiscalYear, Indicator } from '../indicatorsCommonSchema';
+import { FiscalYear, Indicator, Province } from '../indicatorsCommonSchema';
 
 export interface FiscalGapInitialValueProps {
   data: Array<{
@@ -34,7 +34,7 @@ export const FiscalGapValidationSchema = Yup.object({
 export interface FiscalGapDetailsData {
   id: number;
   fiscal_year: FiscalYear;
-  province: number;
+  province: Province;
   indicator: Indicator;
   expense_need: string;
   revenue_capacity: string;

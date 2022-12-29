@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-const Welcome = lazy(() => import('@/core/Public/Welcome/Welcome'));
+// const Welcome = lazy(() => import('@/core/Public/Welcome/Welcome'));
 
 const LoginForm = lazy(() => import('@/core/Public/Login/LoginForm'));
 const ForgotPassword = lazy(() => import('@/core/Public/ForgotPassword/ForgotPassword'));
@@ -15,7 +15,7 @@ export const root = '/';
 
 export const publicPath = {
   login: root + 'login',
-  welcome: root + 'welcome',
+  // welcome: root + 'welcome',
   forgotPassword: root + 'forgot-password',
   changePassword: root + 'change-password',
   changeForgotPassword: root + 'change-forgot-password',
@@ -26,13 +26,13 @@ export const publicPath = {
 const publicRoutes: RouteProperties[] = [
   {
     path: '*',
-    element: Welcome
+    element: LoginForm
   },
-  {
-    path: publicPath.welcome,
-    element: Welcome,
-    type: ROUTE_TYPE_ENUM.unauthorized
-  },
+  // {
+  //   path: publicPath.welcome,
+  //   element: Welcome,
+  //   type: ROUTE_TYPE_ENUM.unauthorized
+  // },
   {
     path: publicPath.login,
     element: LoginForm,

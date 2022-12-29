@@ -45,7 +45,7 @@ const App = () => {
         <PrivateRoute
           protectedRoutes={false}
           appRoutes={publicRoutes}
-          redirectPath={[{ from: '*', to: '/welcome' }]}
+          redirectPath={[{ from: '*', to: '/login' }]}
         />
         {/* )}
         </PublicProvider> */}

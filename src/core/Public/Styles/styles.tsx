@@ -57,7 +57,7 @@ export const LeftImageWrapper = styled(Box)`
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(1, 84, 38, 0.8);
+    background: #1b4789;
   }
 `;
 export const LeftContent = styled(Box)`
@@ -110,7 +110,7 @@ export const CardBox = styled(Box)`
   }
   @media (max-width: 425px) {
     width: 100%;
-    padding 0 2rem;
+    padding: 0 2rem;
   }
 `;
 export const CardWrapper = styled(Box)`
@@ -167,17 +167,14 @@ export const PasswordInput = styled(Box)`
   }
 `;
 export const WidthContainer = styled(Box)`
-   {
-    width: 43rem;
-    margin: auto;
-    // margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
-  }
+  width: 43rem;
+  margin: auto;
+  // margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 `;
 
 //otp verfied page

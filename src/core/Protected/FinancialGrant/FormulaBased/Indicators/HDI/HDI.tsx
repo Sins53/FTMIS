@@ -1,7 +1,10 @@
 import { Box, FlexBox, Text } from '@/components/core';
+import EmptySection from '@/components/EmptySection';
 import LoadingButton from '@/components/LoadingButton/LoadingButton';
+import Spinner from '@/components/Spinner/Spinner';
 import Table from '@/components/Table/DataTable';
-import { base, blue, coolGray } from '@/theme/colors';
+import { getTextByLanguage } from '@/i18n/i18n';
+import { base, blue } from '@/theme/colors';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Cell } from 'react-table';
@@ -19,7 +22,9 @@ const Hdi = () => {
       {
         Header: 'Province',
         Cell: ({ row }: Cell<HdiDetailData>) => {
-          return row.original.province || '';
+          return (
+            getTextByLanguage(row.original.province.name_en, row.original.province.name_np) || ''
+          );
         }
       },
       {
@@ -41,48 +46,47 @@ const Hdi = () => {
   }, [t]);
 
   return (
-    <Box className="h-100">
-      {data && data?.length > 0 ? (
-        <>
-          <StyledInformationBox>
-            <Text color={blue[900]}>
-              {"If Hdi Data's are changed click button to Re-calculate"}
-            </Text>
-            <LoadingButton
-              className="btn btn-outline-primary"
-              onClick={() => refetch()}
-              loading={CalculationLoading}>
-              Re-Calculate
-            </LoadingButton>
-          </StyledInformationBox>
-          <FlexBox direction="column" className="w-100 h-100 px-4">
-            <Text variant="h6" color={base.primary} typeface="semiBold">
-              HDI Details
-            </Text>
-            <Box className="flex-grow-1 bg-danger w-100 mt-4">
-              <Table data={data || []} columns={columns} loading={HdiDetailLoading} />
-            </Box>
-          </FlexBox>
-        </>
+    <>
+      {HdiDetailLoading ? (
+        <Spinner />
       ) : (
-        <>
-          <FlexBox align="center" justify="center" className="h-100">
-            <Box className="text-center">
-              <Text variant="h5" color={coolGray[700]}>
-                Hdi Details Not Calculated Yet
-              </Text>
-              <Text color={coolGray[700]}>Press Button Below to Calculate Hdi Details</Text>
-              <LoadingButton
-                className="btn btn-outline-primary mt-3"
-                onClick={() => refetch()}
-                loading={CalculationLoading}>
-                Calculate
-              </LoadingButton>
-            </Box>
-          </FlexBox>
-        </>
+        <Box className="h-100">
+          {data && data?.length > 0 ? (
+            <>
+              <StyledInformationBox>
+                <Text color={blue[900]}>
+                  {"If HDI Data's are changed click button to Re-calculate"}
+                </Text>
+                <LoadingButton
+                  className="btn btn-outline-primary"
+                  onClick={() => refetch()}
+                  loading={CalculationLoading}>
+                  Re-Calculate
+                </LoadingButton>
+              </StyledInformationBox>
+              <FlexBox direction="column" className="w-100 h-100 px-4">
+                <Text variant="h6" color={base.primary} typeface="semiBold">
+                  HDI Details
+                </Text>
+                <Box className="flex-grow-1 bg-danger w-100 mt-4">
+                  <Table data={data || []} columns={columns} loading={HdiDetailLoading} />
+                </Box>
+              </FlexBox>
+            </>
+          ) : (
+            <>
+              <EmptySection
+                title="HDI Details Not Calculated Yet"
+                description="Press Button Below to Calculate HDI Details"
+                button
+                btnText="Calculate"
+                btnOnClick={() => refetch()}
+              />
+            </>
+          )}
+        </Box>
       )}
-    </Box>
+    </>
   );
 };
 

@@ -25,13 +25,14 @@ const FormulaBasedIndicators = () => {
   const headerTab = [
     { tab: 14, component: HDI },
     { tab: 15, component: MDI },
-    { tab: 17, component: RoadDensity },
-    { tab: 18, component: ElectricityAccess },
-    { tab: 19, component: ItAccess },
-    { tab: 20, component: DrinkingWater },
-    { tab: 21, component: Toilet },
-    { tab: 22, component: RevenueCondition },
-    { tab: 23, component: FiscalGap }
+    { tab: 16, component: RoadDensity },
+    { tab: 17, component: ElectricityAccess },
+    { tab: 18, component: ItAccess },
+    { tab: 19, component: DrinkingWater },
+    { tab: 20, component: Toilet },
+    { tab: 21, component: RevenueCondition },
+    { tab: 28, component: FiscalGap },
+    { tab: 27, component: FiscalGap }
   ];
   return (
     <Layout.Main>

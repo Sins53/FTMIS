@@ -4,28 +4,20 @@ import * as Yup from 'yup';
 export interface EqualizationGrantToLgInitialValueProps {
   data: Array<{
     province: string | number;
-    grant_amount: number | null;
-    provided_date: string | number | null;
+    grant_amount?: number | null;
+    provided_date?: string | number | null;
     comply: string;
   }>;
 }
 
 export const EqualizationGrantToLgInitialValue: EqualizationGrantToLgInitialValueProps = {
-  data: [
-    { province: '', grant_amount: null, provided_date: null, comply: '' },
-    { province: '', grant_amount: null, provided_date: null, comply: '' },
-    { province: '', grant_amount: null, provided_date: null, comply: '' },
-    { province: '', grant_amount: null, provided_date: null, comply: '' },
-    { province: '', grant_amount: null, provided_date: null, comply: '' },
-    { province: '', grant_amount: null, provided_date: null, comply: '' },
-    { province: '', grant_amount: null, provided_date: null, comply: '' }
-  ]
+  data: []
 };
 
 export const EqualizationGrantToLgValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      comply: Yup.string().required('req')
+      comply: Yup.string().required('Choose either Yes / No')
     })
   )
 });
@@ -48,8 +40,8 @@ export interface EqualizationGrantToLgDetailsData {
   fiscal_year: FiscalYear;
   indicator: Indicator;
   province: Province;
-  grant_amount?: any;
-  provided_date?: any;
+  grant_amount?: number | null;
+  provided_date?: string | null;
   comply: string;
   obtained_marks: string;
 }

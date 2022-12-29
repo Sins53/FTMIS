@@ -6,7 +6,7 @@ import { default as logo } from '@/assets/image/logo.png';
 import { Box, FlexBox, Image, Text } from '@/components/core';
 import { Input, Label } from '@/components/core/FormElement';
 import Button from '@/components/derived/Buttons/Buttons';
-import { coolGray, red } from '@/theme/colors';
+import { blue, coolGray } from '@/theme/colors';
 import { IoMdEye } from 'react-icons/io';
 import { RiEyeCloseLine } from 'react-icons/ri';
 import Public from '../Public';
@@ -95,7 +95,7 @@ const LoginForm = (): JSX.Element => {
                 <FlexBox justify="flex-end" className="form-group">
                   <Text
                     variant="display2"
-                    color={red[600]}
+                    color={blue[600]}
                     onClick={() => navigate(publicPath.forgotPassword)}
                     className={'cursor-pointer'}>
                     {t('common:form.forgot_password')}

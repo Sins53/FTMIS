@@ -29,6 +29,7 @@ export interface BackendPaginationProps {
   gotoPage: (pageNumber: number) => void;
   getRow?: (rowNumber: number) => void;
 }
+
 export interface DatatableProps {
   columns: any[];
   data: any;
@@ -47,7 +48,7 @@ export interface DatatableProps {
   serverPagination?: boolean;
   serverPaginationParams?: BackendPaginationProps;
 
-  TableFilterComponent?: React.ComponentType;
+  TableFilterComponent?: React.ReactNode;
 
   /**
    * For Server Side Pagination

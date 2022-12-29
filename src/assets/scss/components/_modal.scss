@@ -25,7 +25,8 @@
   }
 
   &-header {
-    padding: 1rem 1.5rem 0.5rem;
+    padding: 1rem;
+    padding-bottom: 0.5rem;
     // border-bottom: 1px solid $border-color-gray;
     // background-color: $blue-10;
     .nav-link {

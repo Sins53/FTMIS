@@ -5,11 +5,17 @@ const FinancialGrantLayout = lazy(
   () => import('@/core/Protected/FinancialGrant/FinancialGrantLayout')
 );
 const FinancialGrant = lazy(() => import('@/core/Protected/FinancialGrant/FinancialGrant'));
-const PerformanceBased = lazy(
-  () => import('@/core/Protected/FinancialGrant/PerformanceBased/PerformanceBased')
+const CommonMinimumGrant = lazy(
+  () => import('@/core/Protected/FinancialGrant/CommonGrants/CommonMinimumGrant')
 );
-const MinimalGrantView = lazy(
-  () => import('@/core/Protected/FinancialGrant/MinimumGrant/MinimumGrantView')
+const CommonPerformanceBasedIndicators = lazy(
+  () =>
+    import(
+      '@/core/Protected/FinancialGrant/CommonGrants/PerformanceBased/CommonPerformanceBasedIndicators'
+    )
+);
+const CommonPerformanceBased = lazy(
+  () => import('@/core/Protected/FinancialGrant/CommonGrants/CommonPerformanceBased')
 );
 const FormulaBased = lazy(
   () => import('@/core/Protected/FinancialGrant/FormulaBased/FormulaBased')
@@ -18,19 +24,16 @@ const FormulaBasedIndicators = lazy(
   () => import('@/core/Protected/FinancialGrant/FormulaBased/Indicators/FormulaBasedIndicators')
 );
 const FinalResultTable = lazy(() => import('@/core/Protected/FinancialGrant/FinalResultTable'));
-const PerformanceBasedResult = lazy(
-  () => import('@/core/Protected/FinancialGrant/PerformanceBased/PerformanceBasedResult')
-);
 
 const root = '/equalization-grant';
 
 export const financialGrantPath = {
   FinancialGrant: root,
-  PerformanceBased: root + '/performance-based/:name/:id',
-  PerformanceBasedResult: root + '/performance-based/result',
-  MinimalGrantView: root + '/minimum-grant/:name',
-  FormulaBased: root + '/formula-based/:name',
-  FormulaBasedIndicators: root + '/formula-based/:name/indicators',
+  CommonPerformanceBased: root + '/performance-based/:name/:id',
+  CommonPerformanceBasedIndicators: root + '/performance-based/:name/indicators',
+  MinimalGrantView: root + '/minimum-grant/:name/:id',
+  FormulaBased: root + '/formula-based/:name/:id',
+  FormulaBasedIndicators: root + '/formula-based/indicators',
   FinalResultTable: root + '/:name/result'
 };
 
@@ -45,13 +48,8 @@ export const financialGrantRoutes: RouteProperties = {
       whiteList: true
     },
     {
-      path: financialGrantPath.PerformanceBased,
-      element: PerformanceBased,
-      whiteList: true
-    },
-    {
-      path: financialGrantPath.PerformanceBasedResult,
-      element: PerformanceBasedResult,
+      path: financialGrantPath.CommonPerformanceBased,
+      element: CommonPerformanceBased,
       whiteList: true
     },
     {
@@ -71,7 +69,12 @@ export const financialGrantRoutes: RouteProperties = {
     },
     {
       path: financialGrantPath.MinimalGrantView,
-      element: MinimalGrantView,
+      element: CommonMinimumGrant,
+      whiteList: true
+    },
+    {
+      path: financialGrantPath.CommonPerformanceBasedIndicators,
+      element: CommonPerformanceBasedIndicators,
       whiteList: true
     }
   ]

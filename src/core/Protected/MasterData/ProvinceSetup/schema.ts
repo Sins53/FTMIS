@@ -64,10 +64,16 @@ interface FiscalProvinceDetails {
   population: number;
   area: number;
   road: number;
-  mdi: number;
+  sed_index: number;
   hdi: number;
   it_access: number;
   fiscal_year: FiscalYear;
+  toilet_availability_index: number | string;
+  drinking_water_index: number | string;
+  expense_need: number | string;
+  revenue_capacity: number | string;
+  total_house_hold: number | string;
+  household_with_electricity: number | string;
 }
 export interface FiscalProvinceData {
   province: FiscalProvince;
@@ -77,33 +83,70 @@ export type FiscalProvinceDataResponse = CustomResponse<FiscalProvinceData[]>;
 
 export interface FiscalProvinceInitialValueProp {
   id?: number | string;
-  fiscal_year: string | number;
   province: string | number;
   population: string | number;
   area: string | number;
   road: string | number;
-  mdi: string | number;
+  sed_index: string | number;
   hdi: string | number;
   it_access: string | number;
   name: string | number;
+  toilet_availability_index: number | string;
+  drinking_water_index: number | string;
+  expense_need: number | string;
+  revenue_capacity: number | string;
+  total_house_hold: number | string;
+  household_with_electricity: number | string;
 }
 export const FiscalProvinceInitialValue: FiscalProvinceInitialValueProp = {
-  fiscal_year: '',
   province: '',
   population: '',
   area: '',
   road: '',
-  mdi: '',
+  sed_index: '',
   hdi: '',
   it_access: '',
-  name: ''
+  name: '',
+  toilet_availability_index: '',
+  drinking_water_index: '',
+  expense_need: '',
+  revenue_capacity: '',
+  total_house_hold: '',
+  household_with_electricity: ''
 };
 
 export const FiscalProvinceValidationSchema = Yup.object({
-  population: Yup.number().required('req').min(0, 'Must be Positive'),
-  area: Yup.number().required('req').min(0, 'Must be Positive'),
-  road: Yup.number().required('req').min(0, 'Must be Positive'),
-  mdi: Yup.number().required('req').min(0, 'Must be Positive'),
-  hdi: Yup.number().required('req').min(0, 'Must be Positive'),
-  it_access: Yup.number().required('req').min(0, 'Must be Positive')
+  population: Yup.number().required('Total population is required').min(0, 'Must be Positive'),
+  area: Yup.number().required('Area is required').min(0, 'Must be Positive'),
+  road: Yup.number().required('Road value is required').min(0, 'Must be Positive'),
+  sed_index: Yup.number()
+    .required('Socio-econoix disparity is required')
+    .min(0, 'Must be Positive')
+    .lessThan(1, 'Must be less than 1'),
+
+  hdi: Yup.number()
+    .required('HDI value is required')
+    .min(0, 'Must be Positive')
+    .lessThan(1, 'Must be less than 1'),
+  it_access: Yup.number()
+    .required('It Access is required')
+    .min(0, 'Must be Positive')
+    .lessThan(1, 'Must be less than 1'),
+  toilet_availability_index: Yup.number()
+    .required('Toilet Availability Index is required')
+    .min(0, 'Must be Positive')
+    .lessThan(1, 'Must be less than 1'),
+  drinking_water_index: Yup.number()
+    .required('Drinking Water Index is required')
+    .min(0, 'Must be Positive')
+    .lessThan(1, 'Must be less than 1'),
+
+  expense_need: Yup.number().required('Expense Need is required').min(0, 'Must be Positive'),
+  revenue_capacity: Yup.number()
+    .required('Revenue Capacity is required')
+    .min(0, 'Must be Positive'),
+  total_house_hold: Yup.number().required('Total household is required').min(0, 'Must be Positive'),
+  household_with_electricity: Yup.number()
+    .required('Household with electricity is required')
+    .min(0, 'Must be Positive')
 });

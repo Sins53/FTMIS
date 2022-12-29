@@ -21,7 +21,7 @@ interface IPropsTableFilter {
     btnClass?: string;
   };
   filterButtonClickAction?: () => void;
-  TableFilterComponent?: React.ComponentType;
+  TableFilterComponent?: React.ReactNode;
   // for privilege
 
   /**
@@ -38,6 +38,10 @@ interface IPropsTableFilter {
   importExportLoading?: boolean;
   importExportProps?: ImportExportProps;
 }
+export type ChildElement = (props: {
+  toggle: () => void;
+  isFilterOpen: boolean;
+}) => React.ReactElement;
 
 function TableFilter(props: IPropsTableFilter) {
   // const [startDate, setStartDate] = React.useState(new Date());
@@ -125,7 +129,11 @@ function TableFilter(props: IPropsTableFilter) {
                 <i className="ic-arrow-down"></i>
               </DropdownToggle>
               <DropdownMenu className="dropdown-filter" end>
-                {TableFilterComponent && <TableFilterComponent />}
+                {React.isValidElement(TableFilterComponent)
+                  ? TableFilterComponent
+                  : React.createElement(TableFilterComponent as ChildElement)}
+
+                {/* {TableFilterComponent && <TableFilterComponent />} */}
               </DropdownMenu>
             </UncontrolledDropdown>
           )}

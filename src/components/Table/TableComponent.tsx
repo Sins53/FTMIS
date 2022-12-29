@@ -202,9 +202,9 @@ export function TableImportExport(props: ITableImportExport) {
           }}
           onChange={handleFileUpload}
         />
-        <DropdownToggle color="default">
+        <DropdownToggle tag="a">
           <LoadingButton
-            className="btn btn-primary ml-2"
+            className="btn btn-outline-primary btn-icon rft ml-2"
             onClick={() => {
               if (fileRef.current) {
                 fileRef.current.value = '';
@@ -213,6 +213,7 @@ export function TableImportExport(props: ITableImportExport) {
             loading={importExportLoading}
             disabled={importExportLoading}>
             {btnName ? btnName : t('common:table.action')}
+            <i className="ic-arrow-down"></i>
           </LoadingButton>
         </DropdownToggle>
         <DropdownMenu>
@@ -220,7 +221,7 @@ export function TableImportExport(props: ITableImportExport) {
             <DropdownItem onClick={() => fileRef?.current?.click()}>
               <FlexBox align="center">
                 <span>
-                  <AiFillFileExcel /> {t('common:header.import_csv')}
+                  <AiFillFileExcel /> {t('common:table.import_csv')}
                 </span>
               </FlexBox>
             </DropdownItem>
@@ -233,7 +234,7 @@ export function TableImportExport(props: ITableImportExport) {
               }}>
               <FlexBox align="center">
                 <span>
-                  <AiFillFileExcel /> {t('common:header.export_csv')}
+                  <AiFillFileExcel /> {t('common:table.export_csv')}
                 </span>
               </FlexBox>
             </DropdownItem>

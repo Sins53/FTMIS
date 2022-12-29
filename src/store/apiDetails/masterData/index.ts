@@ -15,6 +15,8 @@ import siteSetting from './siteSetting';
 import smsSettings from './sms';
 import psychometricDynamicUrl from './psychometricDynamicUrl';
 import localGovernment from './localGovernment';
+import indicator from './indicator';
+
 export default {
   ...category,
   designation,
@@ -32,5 +34,6 @@ export default {
   siteSetting,
   smsSettings,
   psychometricDynamicUrl,
-  localGovernment
+  localGovernment,
+  indicator
 };

@@ -17,7 +17,7 @@ const prefix = 'equalization_grant';
 
 const performanceBased = {
   getPerformanceBasedGrant: {
-    controllerName: prefix + '/performance-based-grant',
+    controllerName: prefix + '/performance-based-detail',
     queryKeyName: 'GET_PERFORMANCE_BASED_GRANT',
     requestBodyType: RequestBodyType.AUTH,
     requestMethod: RequestMethod.GET
@@ -27,6 +27,12 @@ const performanceBased = {
     queryKeyName: 'CREATE_PERFORMANCE_BASED_GRANT',
     requestBodyType: RequestBodyType.AUTH,
     requestMethod: RequestMethod.POST
+  },
+  updatePerformanceBasedGrant: {
+    controllerName: prefix + '/performance-based-grant/{id}',
+    queryKeyName: 'UPDATE_PERFORMANCE_BASED_GRANT',
+    requestBodyType: RequestBodyType.AUTH,
+    requestMethod: RequestMethod.PUT
   },
   getPerformanceGrantFinalResult: {
     controllerName: prefix + '/performance-grant-total-distribution',

@@ -10,22 +10,18 @@ export interface RevenueCollectionProgressInitialValueProps {
 }
 
 export const RevenueCollectionProgressInitialValue: RevenueCollectionProgressInitialValueProps = {
-  data: [
-    { province: '', previous_year_collected_revenue: '', last_year_collected_revenue: '' },
-    { province: '', previous_year_collected_revenue: '', last_year_collected_revenue: '' },
-    { province: '', previous_year_collected_revenue: '', last_year_collected_revenue: '' },
-    { province: '', previous_year_collected_revenue: '', last_year_collected_revenue: '' },
-    { province: '', previous_year_collected_revenue: '', last_year_collected_revenue: '' },
-    { province: '', previous_year_collected_revenue: '', last_year_collected_revenue: '' },
-    { province: '', previous_year_collected_revenue: '', last_year_collected_revenue: '' }
-  ]
+  data: []
 };
 
 export const RevenueCollectionProgressValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      previous_year_collected_revenue: Yup.number().required('Projected Revenue is required'),
-      last_year_collected_revenue: Yup.number().required('Collected Revenue is required')
+      previous_year_collected_revenue: Yup.number()
+        .required('Projected Revenue is required')
+        .min(0, 'Must be positive'),
+      last_year_collected_revenue: Yup.number()
+        .required('Collected Revenue is required')
+        .min(0, 'Must be positive')
     })
   )
 });

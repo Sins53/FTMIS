@@ -4,19 +4,21 @@ import { HeaderTitle } from '@/components/Header/Header';
 import Layout from '@/components/layout';
 import Table from '@/components/Table/DataTable';
 import { financialGrantPath } from '@/routes/protected/financialGrant';
-import { base, gray } from '@/theme/colors';
-import React, { useMemo } from 'react';
+import { gray } from '@/theme/colors';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Cell } from 'react-table';
 import { useEqualizationGrantFinalResult } from './financialGrantQueries';
 import { FinalGrantData } from './financialGrantSchema';
+import FiscalYearFilterComponent from './FiscalYearFilterComponent';
 
 const FinalResultTable = () => {
-  const { data, isLoading } = useEqualizationGrantFinalResult();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [fiscalYear, setFiscalYear] = useState<string | number>('');
 
+  const { data, isLoading } = useEqualizationGrantFinalResult({ fiscal_year: fiscalYear });
   const columns = useMemo(() => {
     const column = [
       {
@@ -65,12 +67,18 @@ const FinalResultTable = () => {
         </HeaderTitle>
       </Layout.Header>
       {data && data?.length > 0 ? (
-        <Box className="flex-grow-1 px-4 mt-4">
-          <Text variant="h6" color={base.primary} typeface="semiBold" className="p-3 ">
-            Total Equalization Grant Received
-          </Text>
-          <Box className="mt-4 h-100">
-            <Table data={data || []} columns={columns} loading={isLoading} />
+        <Box className="flex-grow-1 px-4">
+          <Box className="mt-3 h-100">
+            <Table
+              data={data || []}
+              columns={columns}
+              loading={isLoading}
+              isFilter
+              isSearch
+              TableFilterComponent={
+                <FiscalYearFilterComponent fiscalYear={fiscalYear} setFiscalYear={setFiscalYear} />
+              }
+            />
           </Box>
         </Box>
       ) : (

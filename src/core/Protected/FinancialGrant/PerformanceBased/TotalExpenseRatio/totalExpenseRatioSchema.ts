@@ -10,22 +10,16 @@ export interface TotalExpenseRatioInitialValueProps {
 }
 
 export const TotalExpenseRatioInitialValue: TotalExpenseRatioInitialValueProps = {
-  data: [
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' }
-  ]
+  data: []
 };
 
 export const TotalExpenseRatioValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      allocation_expense: Yup.number().required('Allocation Expense is rquired'),
-      real_expense: Yup.number().required('Real Expense is required')
+      allocation_expense: Yup.number()
+        .required('Allocation Expense is required')
+        .min(0, 'Must be positive'),
+      real_expense: Yup.number().required('Real Expense is required').min(0, 'Must be positive')
     })
   )
 });

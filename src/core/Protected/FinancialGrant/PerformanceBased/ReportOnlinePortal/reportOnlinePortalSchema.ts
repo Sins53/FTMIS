@@ -3,21 +3,13 @@ import * as Yup from 'yup';
 import { ComplianceInitialValueProps } from '../Compliance/complianceSchema';
 
 export const ReportOnlinePortalInitialValues: ComplianceInitialValueProps = {
-  data: [
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' }
-  ]
+  data: []
 };
 
 export const ReportOnlinePortalValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      comply: Yup.string().required('Compliance is required')
+      comply: Yup.string().required('Choose either Yes / No')
     })
   )
 });

@@ -7,7 +7,7 @@ import { BudgetStatusData, BudgetData, FinalGrantDataResponse } from './financia
 const { getBudgetStatus, createBudgetStatus, editBudget, getBudgetById, getFinalResult } =
   apiList.equalizationGrant;
 
-interface BudgetDataParams {
+export interface BudgetDataParams {
   fiscal_year?: string | number;
 }
 
@@ -26,7 +26,8 @@ export const useBudgetData = ({ fiscal_year }: BudgetDataParams) =>
       select: (data) => {
         return data.data?.data;
       },
-      keepPreviousData: true
+      keepPreviousData: true,
+      staleTime: 0
     }
   );
 
@@ -68,10 +69,21 @@ export const useBudgetDataById = (id: number | string | undefined) =>
     }
   );
 
-export const useEqualizationGrantFinalResult = () =>
+export const useEqualizationGrantFinalResult = ({
+  fiscal_year
+}: {
+  fiscal_year: string | number;
+}) =>
   useQuery(
-    [getFinalResult.queryKeyName],
-    () => performApiAction<FinalGrantDataResponse>(getFinalResult),
+    [getFinalResult.queryKeyName, fiscal_year],
+    () =>
+      performApiAction<FinalGrantDataResponse>(getFinalResult, {
+        params: {
+          ...removeEmptyValueFromObject({
+            fiscal_year
+          })
+        }
+      }),
     {
       select: (data) => {
         return data.data?.data;

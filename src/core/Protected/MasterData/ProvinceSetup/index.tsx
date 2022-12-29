@@ -18,7 +18,7 @@ function Province() {
   return (
     <>
       <Layout.Header>
-        <HeaderTitle>{t('common:table.province')}</HeaderTitle>
+        <HeaderTitle>{t('common:table.province') + ' ' + t('common:table.setup')}</HeaderTitle>
         <CommonFiscalSelector fiscalYear={fiscalYear} setFiscalYear={setFiscalYear} />
       </Layout.Header>
       <div className="flex-grow-1 my-3">

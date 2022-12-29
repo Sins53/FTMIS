@@ -2,6 +2,7 @@ import Layout from '@/components/layout';
 import { TabContent, TabPane } from '@/components/Tab';
 import { Nav } from '@/components/Tab/TabHeader/tab-styles';
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import AirQualityIndex from './AirQualityIndex/AirQualityIndex';
 import Beruju from './Beruju/Beruju';
 import BudgetReview from './BudgetReview/BudgetReview';
@@ -18,9 +19,11 @@ import TotalExpenseRatio from './TotalExpenseRatio/TotalExpenseRatio';
 import VehicleTax from './VehicleTax/VehicleTax';
 
 function PerformanceIndicators() {
+  const { name } = useParams();
+
   const [activeTab, setActiveTab] = useState<number>(1);
   const toggleTab = (tab: number) => [setActiveTab(tab)];
-  const { data: indicatorData } = useIndicatorData({ grant: 'performance' });
+  const { data: indicatorData } = useIndicatorData({ grant: 'performance', module: name });
 
   const headerTab = [
     { tab: 1, component: Beruju },

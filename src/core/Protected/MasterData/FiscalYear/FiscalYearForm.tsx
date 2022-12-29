@@ -75,13 +75,13 @@ const FiscalYearForm = (props: SelfEmploymentProps) => {
             {formType === 'Create' && (
               <Button
                 className="btn btn-outline-gray-16"
-                type="submit"
+                type="button"
                 onClick={() => setShouldAddNew(true)}>
                 {t('common:buttons.create_add')}
               </Button>
             )}
             <Button
-              className="btn btn-success"
+              className="btn btn-primary"
               type="submit"
               onClick={() => setShouldAddNew(false)}>
               {formType === 'Create' ? t('common:buttons.create') : t('common:buttons.edit')}

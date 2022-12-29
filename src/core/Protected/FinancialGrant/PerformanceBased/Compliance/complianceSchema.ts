@@ -1,5 +1,6 @@
 import { CustomResponse } from '@/helper/default-action';
 import * as Yup from 'yup';
+import { Province } from '../../FormulaBased/Indicators/indicatorsCommonSchema';
 
 export interface ComplianceInitialValueProps {
   data: Array<{
@@ -9,28 +10,20 @@ export interface ComplianceInitialValueProps {
 }
 
 export const ComplianceInitialValue: ComplianceInitialValueProps = {
-  data: [
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' },
-    { province: '', comply: '' }
-  ]
+  data: []
 };
 
 export const ComplianceValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      comply: Yup.string().required('req')
+      comply: Yup.string().required('Choose either Yes / No')
     })
   )
 });
 
 export interface ComplianceDetailsData {
   id: number;
-  province: number;
+  province: Province;
   comply: string;
   marks: number;
 }

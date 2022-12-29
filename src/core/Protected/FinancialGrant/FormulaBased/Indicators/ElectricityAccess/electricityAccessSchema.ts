@@ -1,6 +1,6 @@
 import { CustomResponse } from '@/helper/default-action';
 import * as Yup from 'yup';
-import { FiscalYear, Indicator } from '../indicatorsCommonSchema';
+import { FiscalYear, Indicator, Province } from '../indicatorsCommonSchema';
 
 export interface ElectricityAccessInitialValueProps {
   data: Array<{
@@ -34,7 +34,7 @@ export const ElectricityAccessValidationSchema = Yup.object({
 export interface ElectricityAccessDetailsData {
   id: number;
   fiscal_year: FiscalYear;
-  province: number;
+  province: Province;
   indicator: Indicator;
   household_with_electricity: string;
   total_house_hold: string;

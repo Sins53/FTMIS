@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Box, FlexBox, Text } from '../core';
+import { Box, FlexBox } from '../core';
 import Button from '../derived/Buttons/Buttons';
 
 interface Props {
@@ -59,8 +59,9 @@ export default function HeaderLayout(props: Props) {
         className={`${props.extraDetail ? 'row w-100' : 'w-100'}`}>
         {props.children}
         {backToList && (
-          <Button className="btn" onClick={() => navigate(-1)}>
-            <Text variant="display1">{t('common:header.back_to_list')}</Text>
+          <Button className="btn btn-outline-primary btn-icon lft" onClick={() => navigate(-1)}>
+            <i className="ic-arrow-left"></i>
+            {t('common:header.back_to_list')}
           </Button>
         )}
       </FlexBox>

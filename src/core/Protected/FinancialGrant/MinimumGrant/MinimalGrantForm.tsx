@@ -4,7 +4,7 @@ import React from 'react';
 import Button from '@/components/derived/Buttons/Buttons';
 import { useTranslation } from 'react-i18next';
 import { minimumGrantValidationSchema } from './minimumGrantSchema';
-import { Box, Text } from '@/components/core';
+import { Box } from '@/components/core';
 import { Input, Label } from '@/components/core/FormElement';
 import FormikValidationError from '@/components/FormikValidationError/FormikValidationError';
 import PercentInput from '@/components/derived/Input/PercentInput';
@@ -12,7 +12,6 @@ import {
   useCalculateEqualizationMinimumGrantDetail,
   useEqualizationMinimumGrantCreator
 } from './minimumGrantQueries';
-import { coolGray } from '@/theme/colors';
 
 interface MinimalGrantFormProps {
   toggle: () => void;
@@ -25,7 +24,7 @@ function MinimalGrantForm(props: MinimalGrantFormProps) {
   const { mutate: minimumGrantMutate } = useEqualizationMinimumGrantCreator(
     formData.id ? true : false
   );
-  const { refetch } = useCalculateEqualizationMinimumGrantDetail({});
+  const { refetch } = useCalculateEqualizationMinimumGrantDetail();
 
   const {
     values,
@@ -44,9 +43,6 @@ function MinimalGrantForm(props: MinimalGrantFormProps) {
       const requestData = {
         ...values
       };
-      // if (values.fiscal_year === '') {
-      //   delete requestData.fiscal_year;
-      // }
       minimumGrantMutate(requestData, {
         onSuccess: () => {
           resetForm();
@@ -73,7 +69,7 @@ function MinimalGrantForm(props: MinimalGrantFormProps) {
             toggle();
             resetForm();
           }}>
-          <p>Minimal Grant Setup</p>
+          Minimal Grant Setup
         </ModalHeader>
         <form
           onSubmit={(e: React.FormEvent) => {
@@ -83,12 +79,13 @@ function MinimalGrantForm(props: MinimalGrantFormProps) {
           <ModalBody>
             <Box className="row">
               <Box className="col-12">
-                <Box className="mb-2">
-                  <Text color={coolGray[800]}>Total Amount : {values.total}</Text>
+                <Box className="mb-3">
+                  <Label>Total Amount</Label>
+                  <Input value={values.total} disabled />
                 </Box>
               </Box>
               <Box className="col-md-6">
-                <Box className="mb-2">
+                <Box className="mb-3">
                   <Label htmlFor="percent">Minimal Grant Percentage</Label>
                   <PercentInput
                     value={values.percent}
@@ -104,17 +101,20 @@ function MinimalGrantForm(props: MinimalGrantFormProps) {
                 </Box>
               </Box>
               <Box className="col-md-6">
-                <Box className="mb-2">
+                <Box className="mb-3">
                   <Label htmlFor="amount">Minimal Grant Amount</Label>
                   <Input value={values.amount} name="amount" type={'number'} disabled />
                 </Box>
               </Box>
               <Box className="col-md-6">
-                <Box className="mb-2">
+                <Box className="mb-3">
                   <Label htmlFor="area_percent">Area Percentage</Label>
                   <PercentInput
                     value={values.area_percent}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      setFieldValue('population_percent', 100 - Number(e.target.value));
+                      handleChange(e);
+                    }}
                     onBlur={handleBlur}
                     name="area_percent"
                     type={'number'}
@@ -123,11 +123,14 @@ function MinimalGrantForm(props: MinimalGrantFormProps) {
                 </Box>
               </Box>
               <Box className="col-md-6">
-                <Box className="mb-2">
+                <Box className="mb-3">
                   <Label htmlFor="population_percent">Population Percentage</Label>
                   <PercentInput
                     value={values.population_percent}
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      setFieldValue('area_percent', 100 - Number(e.target.value));
+                      handleChange(e);
+                    }}
                     onBlur={handleBlur}
                     name="population_percent"
                     type={'number'}
@@ -142,7 +145,10 @@ function MinimalGrantForm(props: MinimalGrantFormProps) {
             </Box>
           </ModalBody>
           <ModalFooter>
-            <Button className="btn btn-success" type="submit">
+            <Button className="btn btn-outline-primary" type="button" onClick={toggle}>
+              Cancel
+            </Button>
+            <Button className="btn btn-primary" type="submit">
               {formData.id ? 'Update & Calculate' : t('common:buttons.create')}
             </Button>
           </ModalFooter>

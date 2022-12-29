@@ -10,22 +10,16 @@ export interface IncreaseForestAreaInitialValueProps {
 }
 
 export const IncreaseForestAreaInitialValue: IncreaseForestAreaInitialValueProps = {
-  data: [
-    { province: '', previous_year_target: '', progress: '' },
-    { province: '', previous_year_target: '', progress: '' },
-    { province: '', previous_year_target: '', progress: '' },
-    { province: '', previous_year_target: '', progress: '' },
-    { province: '', previous_year_target: '', progress: '' },
-    { province: '', previous_year_target: '', progress: '' },
-    { province: '', previous_year_target: '', progress: '' }
-  ]
+  data: []
 };
 
 export const IncreaseForestAreaValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      previous_year_target: Yup.number().required('Projected Revenue is required'),
-      progress: Yup.number().required('Collected Revenue is required')
+      previous_year_target: Yup.number()
+        .required('Projected Revenue is required')
+        .min(0, 'Must be positive'),
+      progress: Yup.number().required('Collected Revenue is required').min(0, 'Must be positive')
     })
   )
 });

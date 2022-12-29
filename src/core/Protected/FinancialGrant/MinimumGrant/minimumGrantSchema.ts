@@ -4,10 +4,10 @@ import * as Yup from 'yup';
 export interface minimumGrantInitialValueProp {
   total: string | number;
   id?: string | number;
-  percent: string;
-  amount: string;
-  area_percent: string;
-  population_percent: string;
+  percent: string | number;
+  amount: string | number;
+  area_percent: string | number;
+  population_percent: string | number;
   fiscal_year?: string | number;
   budget?: string | number;
 }
@@ -23,15 +23,15 @@ export const minimumGrantInitialValue: minimumGrantInitialValueProp = {
 
 export const minimumGrantValidationSchema = Yup.object({
   percent: Yup.number()
-    .required('req')
+    .required('Minimum Grant Percentage is required')
     .min(0, 'Must be positive')
     .max(100, 'Must be less than 100'),
   area_percent: Yup.number()
-    .required('req')
+    .required('Area Percentage is required')
     .min(0, 'Must be positive')
     .max(100, 'Must be less than 100'),
   population_percent: Yup.number()
-    .required('req')
+    .required('Population percentage is required')
     .min(0, 'Must be positive')
     .max(100, 'Must be less than 100')
 });

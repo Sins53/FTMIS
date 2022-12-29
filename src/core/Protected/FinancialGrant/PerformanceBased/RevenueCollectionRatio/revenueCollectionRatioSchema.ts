@@ -1,5 +1,6 @@
 import { CustomResponse } from '@/helper/default-action';
 import * as Yup from 'yup';
+import { Province } from '../../FormulaBased/Indicators/indicatorsCommonSchema';
 
 export interface RevenueCollectionRatioInitialValueProps {
   data: Array<{
@@ -10,29 +11,25 @@ export interface RevenueCollectionRatioInitialValueProps {
 }
 
 export const RevenueCollectionRatioInitialValue: RevenueCollectionRatioInitialValueProps = {
-  data: [
-    { province: '', projected_revenue: '', collected_revenue: '' },
-    { province: '', projected_revenue: '', collected_revenue: '' },
-    { province: '', projected_revenue: '', collected_revenue: '' },
-    { province: '', projected_revenue: '', collected_revenue: '' },
-    { province: '', projected_revenue: '', collected_revenue: '' },
-    { province: '', projected_revenue: '', collected_revenue: '' },
-    { province: '', projected_revenue: '', collected_revenue: '' }
-  ]
+  data: []
 };
 
 export const RevenueCollectionRatioValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      projected_revenue: Yup.number().required('Projected Revenue is required'),
-      collected_revenue: Yup.number().required('Collected Revenue is required')
+      projected_revenue: Yup.number()
+        .required('Projected Revenue is required')
+        .min(0, 'Must be positive'),
+      collected_revenue: Yup.number()
+        .required('Collected Revenue is required')
+        .min(0, 'Must be positive')
     })
   )
 });
 
 export interface RevenueCollectionRatioDetailsData {
   id: number;
-  province: number;
+  province: Province;
   projected_revenue: string;
   collected_revenue: string;
   revenue_pct: string;

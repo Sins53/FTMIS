@@ -81,12 +81,12 @@ function AuthProvider(props: Props) {
   };
 
   const logout = async () => {
-    const response = await logoutFromSingleDevice();
-    if (response.status === 205) {
-      setAuthenticated(false);
-      TokenService.clearToken();
-      navigate('/welcome');
-    }
+    TokenService.clearToken();
+    setAuthenticated(false);
+    navigate('/login');
+    //   // const response = await logoutFromSingleDevice();
+    //   // if (response.status === 205) {
+    //   // }
   };
   const logoutFromAllDeviceAction = () => {
     logoutFromAllDevices(undefined, {
@@ -94,7 +94,7 @@ function AuthProvider(props: Props) {
         console.log(response, 'robbed');
         setAuthenticated(false);
         TokenService.clearToken();
-        navigate('/welcome');
+        navigate('/login');
       }
     });
   };

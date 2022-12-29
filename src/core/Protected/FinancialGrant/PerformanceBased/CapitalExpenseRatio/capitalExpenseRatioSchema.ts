@@ -10,22 +10,16 @@ export interface CapitalExpenseRatioInitialValueProps {
 }
 
 export const CapitalExpenseRatioInitialValue: CapitalExpenseRatioInitialValueProps = {
-  data: [
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' },
-    { province: '', allocation_expense: '', real_expense: '' }
-  ]
+  data: []
 };
 
 export const CapitalExpenseRatioValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      allocation_expense: Yup.number().required('Allocation Expense is rquired'),
-      real_expense: Yup.number().required('Real Expense is required')
+      allocation_expense: Yup.number()
+        .required('Allocation Expense is rquired')
+        .min(0, 'Must be positive'),
+      real_expense: Yup.number().required('Real Expense is required').min(0, 'Must be positive')
     })
   )
 });

@@ -211,6 +211,8 @@ export default async function performApiAction<TData = unknown>(
       FailToast('कृपया १२ MB भन्दा कम साइजको फाइलहरु अपलोड गर्नुहोला ।');
     }
 
+    console.log(disableFailureToast, 'errorResponseData');
+
     // if (disableFailureToast) {
     //   // No work done
     // } else {
@@ -226,11 +228,13 @@ export default async function performApiAction<TData = unknown>(
     }
     if ((responseData as ResponseError).data && (responseData as ResponseError).isAxiosError) {
       if (responseData.data?.message) {
-        FailToast(responseData.data?.message);
+        // FailToast(responseData.data?.message);
       } else if (errorResponseData?.message) {
-        FailToast(
-          'Server is taking too long to respond, this can be caused by either poor connectivity or an error with our servers. Please try again in a while!'
-        );
+        if (errorResponseData.response.status !== 500) {
+          FailToast(
+            'Server is taking too long to respond, this can be caused by either poor connectivity or an error with our servers. Please try again in a while!'
+          );
+        }
       }
     }
 

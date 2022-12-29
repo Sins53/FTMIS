@@ -1,6 +1,7 @@
 import { RequestBodyType, RequestMethod } from '../request';
 import performanceBased from './performanceBased';
 import formulaBased from './formulaBased';
+import fedToLocal from './fedToLocal';
 
 const prefix = 'equalization_grant';
 
@@ -75,4 +76,4 @@ const equalizationGrant = {
   }
 };
 
-export default { ...equalizationGrant, performanceBased, formulaBased };
+export default { ...equalizationGrant, performanceBased, formulaBased, fedToLocal };

@@ -40,12 +40,18 @@
     "view_all_info": "सबै जानकारी हेर्नुहोस्",
     "mark_all_as_read": "सबै पढेको रूपमा चिन्ह लगाउनुहोस्",
     "go_to_notification": "सूचनाहरूमा जानुहोस्",
-    "copyright": ". एन.एन.आर.एफ.सी",
-    "go_back": "पछाडि जानुहोस्"
+    "copyright": "एन.एन.आर.एफ.सी",
+    "go_back": "पछाडि जानुहोस्",
+    "calculate": "गणना गर्नुहोस्"
   },
   "form": {
     "login": "लगइन",
     "forgot_password": "पासवर्ड बिर्सनुभयो"
+  },
+  "greeting": {
+    "morning": "शुभ-प्रभात",
+    "afternoon": "शुभ-मध्यान",
+    "evening": "शुभ सन्ध्या"
   },
   "header": {
     "nnrfc_location": "सिंहदरबार, काठमाडौं, नेपाल ",
@@ -65,7 +71,9 @@
   "tabs": {
     "logo": "लोगो",
     "contact": "सम्पर्क विवरण",
-    "language": "भाषा"
+    "language": "भाषा",
+    "performance": "प्रदर्शन",
+    "formula": "सूत्र"
   },
   "table": {
     "sn": "क्र.सं.",
@@ -78,6 +86,7 @@
     "province": "प्रान्त",
     "province_en": "प्रान्त (अंग्रेजी)",
     "province_np": "प्रान्त (नेपाली)",
+    "local_government": "स्थानीय सरकार",
     "documentName": "कागजातको नाम",
     "document_size": "कागजात साईज",
     "fileType": "फाईलको प्रकार",
@@ -95,6 +104,11 @@
     "parent_department": "अभिभावक विभाग",
     "parent_department_en": "अभिभावक विभाग (अंग्रेजी)",
     "parent_department_np": "अभिभावक विभाग (नेपाली)",
-    "parent_type": "अभिभावक प्रकार"
+    "parent_type": "अभिभावक प्रकार",
+    "setup": "सेटअप",
+    "indicator": "सूचक",
+    "code": "कोड",
+    "import_csv": "CSV आयात गर्नुहोस्",
+    "export_csv": "CSV निर्यात गर्नुहोस्"
   }
 }

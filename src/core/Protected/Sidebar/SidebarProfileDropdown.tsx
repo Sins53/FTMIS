@@ -28,13 +28,10 @@ export function SidebarIndividualDropdown() {
             variant="display1"
             color={coolGray[600]}
             className="align-vertical flex-wrap">
-            <span className="mr-1"> {userDetailData?.first_name}</span>
-            <span className="mr-1">{userDetailData?.middle_name}</span>
+            {userDetailData?.first_name}&nbsp;
+            {userDetailData?.middle_name}&nbsp;
             {userDetailData?.last_name}
           </Text>
-          {/* <Text variant="display2" color={coolGray[600]}>
-              {userDetailData?.individual}
-              </Text> */}
         </Box>
         <AiFillCaretDown color={gray[500]} />
       </FlexBox>

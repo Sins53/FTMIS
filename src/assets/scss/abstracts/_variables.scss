@@ -156,8 +156,8 @@ $warning: $yellow-56;
 $danger: $red;
 $light: $gray-100;
 $dark: $gray-800;
-$border-color-gray: $gray-96;
-$border-color: $gray-88;
+$border-color-gray: $gray-100;
+$border-color: $gray-40;
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,
@@ -337,6 +337,7 @@ $modal-content-border-color: none;
 $modal-content-border-radius: 0;
 $modal-header-border-color: none;
 $modal-lg: 58rem;
+$modal-sm: 400px;
 $modal-md: 562px;
 //Dropdown
 $dropdown-border-color: none;

@@ -8,6 +8,7 @@ import { Cell } from 'react-table';
 import { useFiscalProvinceData } from './provinceQueries';
 import ProvinceForm from './ProvinceSetupForm';
 import { FiscalProvinceData, FiscalProvinceInitialValue } from './schema';
+import Badge from '@/components/derived/Badge';
 
 interface ProvinceTableProps {
   fiscalYear: number | string;
@@ -68,7 +69,15 @@ function ProvinceTable(props: ProvinceTableProps) {
       {
         Header: t('common:table.status'),
         Cell: ({ row }: Cell<FiscalProvinceData>) => {
-          return row.original?.details ? 'Completed' : 'Not-Completed';
+          return (
+            <>
+              {row.original?.details ? (
+                <Badge bgColor="success" text={'Complete'} />
+              ) : (
+                <Badge bgColor="danger" text={'Incomplete'} />
+              )}
+            </>
+          );
         }
       },
       ...(permissionGate.can_update
@@ -88,13 +97,21 @@ function ProvinceTable(props: ProvinceTableProps) {
                               id: row.original.details?.id,
                               province: id,
                               name: name_en,
-                              fiscal_year: row.original.details?.fiscal_year.id ?? '',
                               population: row.original?.details?.population ?? '',
                               area: row.original?.details?.area ?? '',
                               road: row.original?.details?.road ?? '',
-                              mdi: row.original?.details?.mdi ?? '',
+                              sed_index: row.original?.details?.sed_index ?? '',
                               hdi: row.original?.details?.hdi ?? '',
-                              it_access: row.original?.details?.it_access ?? ''
+                              it_access: row.original?.details?.it_access ?? '',
+                              drinking_water_index:
+                                row.original?.details?.drinking_water_index ?? '',
+                              expense_need: row.original?.details?.expense_need ?? '',
+                              household_with_electricity:
+                                row.original?.details?.household_with_electricity ?? '',
+                              revenue_capacity: row.original?.details?.revenue_capacity ?? '',
+                              toilet_availability_index:
+                                row?.original?.details?.toilet_availability_index ?? '',
+                              total_house_hold: row?.original?.details?.total_house_hold ?? ''
                             });
                           }
                         : undefined
@@ -106,8 +123,7 @@ function ProvinceTable(props: ProvinceTableProps) {
                             setFormData({
                               ...formData,
                               province: id,
-                              name: name_en,
-                              fiscal_year: fiscalYear
+                              name: name_en
                             });
                           }
                         : undefined

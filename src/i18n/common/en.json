@@ -40,12 +40,18 @@
     "view_all_info": "View All Info",
     "mark_all_as_read": "Mark all as Read",
     "go_to_notification": "Go to Notifications",
-    "copyright": ". NNRFC",
-    "go_back": "Go Back"
+    "copyright": "NNRFC",
+    "go_back": "Go Back",
+    "calculate": "Calculate"
   },
   "form": {
     "login": "Login",
     "forgot_password": "Forgot Password"
+  },
+  "greeting": {
+    "morning": "Good Morning",
+    "afternoon": "Good Afternoon",
+    "evening": "Good Evening"
   },
   "header": {
     "nnrfc_location": "Singha Durbar, Kathmandu, Nepal",
@@ -65,7 +71,9 @@
   "tabs": {
     "logo": "Logo",
     "contact": "Contact",
-    "language": "Language"
+    "language": "Language",
+    "performance": "Performance",
+    "formula": "Formula"
   },
   "table": {
     "sn": "S.N",
@@ -83,6 +91,7 @@
     "province": "Province",
     "province_en": "Province(EN)",
     "province_np": "Province(NP)",
+    "local_government": "Local Government",
     "parentOrganization": "Parent Organization",
     "descriptionEn": "Description(EN)",
     "descriptionNp": "Description(NP)",
@@ -95,6 +104,11 @@
     "parent_department": "Parent Department",
     "parent_department_en": "Parent Department(EN)",
     "parent_department_np": "Parent Department(NP)",
-    "parent_type": "Parent Type"
+    "parent_type": "Parent Type",
+    "setup": "Setup",
+    "indicator": "Indicator",
+    "code": "code",
+    "import_csv": "Import CSV",
+    "export_csv": "Export CSV"
   }
 }

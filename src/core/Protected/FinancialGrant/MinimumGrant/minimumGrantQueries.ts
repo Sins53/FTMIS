@@ -37,18 +37,11 @@ export const useEqualizationMinimumGrantDetails = ({ fiscal_year }: FiscalYearPa
   );
 
 //Calculate MinimumGrant for  Created Equalization MinimumGrant
-export const useCalculateEqualizationMinimumGrantDetail = ({ fiscal_year }: FiscalYearParam) => {
+export const useCalculateEqualizationMinimumGrantDetail = () => {
   const queryClient = useQueryClient();
   return useQuery(
-    [calculateProvinceMinimalGrantData.queryKeyName, fiscal_year],
-    () =>
-      performApiAction<any>(calculateProvinceMinimalGrantData, {
-        params: {
-          ...removeEmptyValueFromObject({
-            fiscal_year
-          })
-        }
-      }),
+    [calculateProvinceMinimalGrantData.queryKeyName],
+    () => performApiAction<any>(calculateProvinceMinimalGrantData),
     {
       select: (data) => {
         return data.data?.data;
@@ -76,7 +69,7 @@ export const useEqualizationMinimumGrantData = ({ fiscal_year }: FiscalYearParam
       }),
     {
       select: (data) => {
-        return data.data?.data[0];
+        return data.data?.data;
       },
       keepPreviousData: true
     }

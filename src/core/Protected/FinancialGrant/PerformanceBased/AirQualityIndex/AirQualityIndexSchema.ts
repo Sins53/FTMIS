@@ -10,22 +10,18 @@ export interface AirQualityFormProps {
 }
 
 export const AirQualityInitialValues: AirQualityFormProps = {
-  data: [
-    { province: '', previous_year_aqi: '', last_year_aqi: '', improvement: '' },
-    { province: '', previous_year_aqi: '', last_year_aqi: '', improvement: '' },
-    { province: '', previous_year_aqi: '', last_year_aqi: '', improvement: '' },
-    { province: '', previous_year_aqi: '', last_year_aqi: '', improvement: '' },
-    { province: '', previous_year_aqi: '', last_year_aqi: '', improvement: '' },
-    { province: '', previous_year_aqi: '', last_year_aqi: '', improvement: '' },
-    { province: '', previous_year_aqi: '', last_year_aqi: '', improvement: '' }
-  ]
+  data: []
 };
 
 export const AirQualityValidationSchema = Yup.object({
   data: Yup.array().of(
     Yup.object().shape({
-      previous_year_aqi: Yup.number().required('Previous year air quality index is required'),
-      last_year_aqi: Yup.number().required('Last year air quality index is required'),
+      previous_year_aqi: Yup.number()
+        .required('Previous year air quality index is required')
+        .min(0, 'Must be positive'),
+      last_year_aqi: Yup.number()
+        .required('Last year air quality index is required')
+        .min(0, 'Must be positive'),
       improvement: Yup.string().required('Improvement is required')
     })
   )

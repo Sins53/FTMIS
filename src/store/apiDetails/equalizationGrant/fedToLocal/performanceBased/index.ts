@@ -8,6 +8,7 @@ import sutraPortal from './sutraPortal';
 import periodicPlan from './periodicPlan';
 import netAdmissionRate from './netAdmissionRate';
 import studentConsistencyRate from './studentConsistencyRate';
+import seePerformance from './seePerformance';
 
 const prefix = 'equalization_grant';
 
@@ -48,5 +49,6 @@ export default {
   sutraPortal,
   periodicPlan,
   netAdmissionRate,
-  studentConsistencyRate
+  studentConsistencyRate,
+  seePerformance
 };

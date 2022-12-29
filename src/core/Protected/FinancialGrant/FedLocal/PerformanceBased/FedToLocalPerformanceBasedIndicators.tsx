@@ -15,6 +15,8 @@ import Beruju from './Indicators/Beruju/Beruju';
 import SutraPortal from './Indicators/SutraPortal/SutraPortal';
 import PeriodicPlan from './Indicators/PeriodicPlan/PeriodicPlan';
 import NetAdmissionRate from './Indicators/NetAdmissionRate/NetAdmissionRate';
+import StudentConsistencyRate from './Indicators/StudentConsistencyRate/StudentConsistencyRate';
+import SeePerformance from './Indicators/SeePerformance/SeePerformance';
 
 const FedToLocalPerformanceBasedIndicators = () => {
   const [activeTab, setActiveTab] = useState<string>('indicator36');
@@ -40,8 +42,8 @@ const FedToLocalPerformanceBasedIndicators = () => {
     { tab: 'indicator28', component: DeleteThis },
     { tab: 'indicator30', component: PeriodicPlan },
     { tab: 'indicator31', component: NetAdmissionRate },
-    { tab: 'indicator32', component: DeleteThis },
-    { tab: 'indicator33', component: DeleteThis },
+    { tab: 'indicator32', component: StudentConsistencyRate },
+    { tab: 'indicator33', component: SeePerformance },
     { tab: 'indicator34', component: DeleteThis },
     { tab: 'indicator35', component: DeleteThis }
   ];

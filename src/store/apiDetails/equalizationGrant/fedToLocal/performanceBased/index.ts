@@ -10,6 +10,7 @@ import netAdmissionRate from './netAdmissionRate';
 import studentConsistencyRate from './studentConsistencyRate';
 import seePerformance from './seePerformance';
 import pregnancyTest from './pregnancyTest';
+import reportOnlinePortal from './reportOnlinePortal';
 
 const prefix = 'equalization_grant';
 
@@ -52,5 +53,6 @@ export default {
   netAdmissionRate,
   studentConsistencyRate,
   seePerformance,
-  pregnancyTest
+  pregnancyTest,
+  reportOnlinePortal
 };

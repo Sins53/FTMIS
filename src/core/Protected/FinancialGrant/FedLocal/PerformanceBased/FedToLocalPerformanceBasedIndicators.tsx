@@ -18,6 +18,7 @@ import NetAdmissionRate from './Indicators/NetAdmissionRate/NetAdmissionRate';
 import StudentConsistencyRate from './Indicators/StudentConsistencyRate/StudentConsistencyRate';
 import SeePerformance from './Indicators/SeePerformance/SeePerformance';
 import PregnancyTest from './Indicators/PregnancyTest/PregnancyTest';
+import ReportOnlinePortal from './Indicators/ReportOnlinePortal/ReportOnlinePortal';
 
 const FedToLocalPerformanceBasedIndicators = () => {
   const [activeTab, setActiveTab] = useState<string>('indicator36');
@@ -29,7 +30,7 @@ const FedToLocalPerformanceBasedIndicators = () => {
 
   const headerTab = [
     { tab: 'indicator36', component: DeleteThis },
-    { tab: 'indicator37', component: DeleteThis },
+    { tab: 'indicator37', component: ReportOnlinePortal },
     { tab: 'indicator38', component: RevenueCollectionRatio },
     { tab: 'indicator40', component: TotalExpenseRatio },
     { tab: 'indicator41', component: CapitalExpenseRatio },

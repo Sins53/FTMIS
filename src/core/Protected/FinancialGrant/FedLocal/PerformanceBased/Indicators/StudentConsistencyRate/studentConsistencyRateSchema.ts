@@ -33,8 +33,7 @@ export interface FedToLocalStudentConsistencyRateData {
   obtained_marks: string | number;
   students_in_class_eight: string;
   students_in_class_nine: string;
-  expense_pct: string;
-  average_expense: string;
+  consistency_rate: string;
 }
 
 export type StudentConsistencyRateResponse = CommonArrayResponseTypes<

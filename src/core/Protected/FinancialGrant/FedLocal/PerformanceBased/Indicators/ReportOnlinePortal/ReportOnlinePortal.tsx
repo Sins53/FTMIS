@@ -86,7 +86,7 @@ const ReportOnlinePortal = () => {
         Header: 'Comply',
         accessor: 'comply',
         Cell: ({ row }: Cell<FedToLocalReportOnlinePortalData>) => {
-          return Number(row.original.comply) || 0;
+          return row.original.comply || '';
         }
       },
       {

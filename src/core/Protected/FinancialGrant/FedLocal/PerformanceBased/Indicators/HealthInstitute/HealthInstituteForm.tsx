@@ -7,17 +7,17 @@ import React from 'react';
 import Button from '@/components/derived/Buttons/Buttons';
 import { useTranslation } from 'react-i18next';
 import {
-  ReportOnlinePortalInitialValueProps,
-  ReportOnlinePortalValidationSchema
-} from './reportOnlinePortalSchema';
+  HealthInstituteInitialValueProps,
+  HealthInstituteValidationSchema
+} from './healthInstituteSchema';
 import { base } from '@/theme/colors';
 
-interface ReportOnlinePortalFormProps {
+interface HealthInstituteFormProps {
   toggle: () => void;
   isOpen?: boolean;
-  formData: ReportOnlinePortalInitialValueProps;
+  formData: HealthInstituteInitialValueProps;
 }
-function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
+function HealthInstituteForm(props: HealthInstituteFormProps) {
   const { toggle, isOpen, formData } = props;
   const formType = formData.id ? 'Edit' : 'Create';
 
@@ -26,8 +26,8 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
   const { values, errors, handleChange, handleSubmit, touched, handleBlur, resetForm } = useFormik({
     enableReinitialize: true,
     initialValues: formData,
-    validationSchema: ReportOnlinePortalValidationSchema,
-    onSubmit: (values: ReportOnlinePortalInitialValueProps, { resetForm }) => {
+    validationSchema: HealthInstituteValidationSchema,
+    onSubmit: (values: HealthInstituteInitialValueProps, { resetForm }) => {
       const requestData = { ...values };
       delete requestData.name;
       delete requestData.fiscal_year;
@@ -64,14 +64,38 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
             <Box className="row">
               <Box className="col-6">
                 <Box className="mb-2">
-                  <Label htmlFor="comply">Comply</Label>
+                  <Label htmlFor="pregnants_number">No. of Pregnant Women</Label>
                   <Input
-                    value={values.comply}
+                    value={values.pregnants_number}
+                    type="number"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="comply"
+                    name="pregnants_number"
                   />
-                  <FormikValidationError name="comply" errors={errors} touched={touched} />
+                  <FormikValidationError
+                    name="pregnants_number"
+                    errors={errors}
+                    touched={touched}
+                  />
+                </Box>
+              </Box>
+              <Box className="col-6">
+                <Box className="mb-2">
+                  <Label htmlFor="no_of_delivery_at_health_institute">
+                    No. of Women who Delivered at Health Institute
+                  </Label>
+                  <Input
+                    value={values.no_of_delivery_at_health_institute}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    type="number"
+                    name="no_of_delivery_at_health_institute"
+                  />
+                  <FormikValidationError
+                    name="no_of_delivery_at_health_institute"
+                    errors={errors}
+                    touched={touched}
+                  />
                 </Box>
               </Box>
             </Box>
@@ -90,4 +114,4 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
   );
 }
 
-export default ReportOnlinePortalForm;
+export default HealthInstituteForm;

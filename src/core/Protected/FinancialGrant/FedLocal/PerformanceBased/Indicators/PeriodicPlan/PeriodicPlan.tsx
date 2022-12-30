@@ -82,7 +82,7 @@ const PeriodicPlan = () => {
         Header: 'Comply',
         accessor: 'comply',
         Cell: ({ row }: Cell<FedToLocalPeriodicPlanData>) => {
-          return Number(row.original.comply) || 0;
+          return row.original.comply || '';
         }
       },
       {

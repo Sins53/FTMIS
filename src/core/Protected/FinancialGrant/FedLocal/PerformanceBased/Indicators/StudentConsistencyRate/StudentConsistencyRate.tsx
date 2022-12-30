@@ -98,18 +98,18 @@ const StudentConsistencyRate = () => {
       },
       {
         Header: 'Consistency Rate',
-        accessor: 'expense_pct',
+        accessor: 'consistency_rate',
         Cell: ({ row }: Cell<FedToLocalStudentConsistencyRateData>) => {
-          return `${Number(row.original.expense_pct)} %` || 0;
+          return `${Number(row.original.consistency_rate)} %` || 0;
         }
       },
-      {
-        Header: 'Average %',
-        accessor: 'average_expense',
-        Cell: ({ row }: Cell<FedToLocalStudentConsistencyRateData>) => {
-          return `${Number(row.original.average_expense)} %` || 0;
-        }
-      },
+      // {
+      //   Header: 'Average %',
+      //   accessor: 'average_expense',
+      //   Cell: ({ row }: Cell<FedToLocalStudentConsistencyRateData>) => {
+      //     return `${Number(row.original.average_expense)} %` || 0;
+      //   }
+      // },
       {
         Header: 'Difference',
         accessor: 'difference',

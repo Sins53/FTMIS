@@ -7,17 +7,17 @@ import React from 'react';
 import Button from '@/components/derived/Buttons/Buttons';
 import { useTranslation } from 'react-i18next';
 import {
-  ReportOnlinePortalInitialValueProps,
-  ReportOnlinePortalValidationSchema
-} from './reportOnlinePortalSchema';
+  TaxDistributionInitialValueProps,
+  TaxDistributionValidationSchema
+} from './taxDistributionSchema';
 import { base } from '@/theme/colors';
 
-interface ReportOnlinePortalFormProps {
+interface TaxDistributionFormProps {
   toggle: () => void;
   isOpen?: boolean;
-  formData: ReportOnlinePortalInitialValueProps;
+  formData: TaxDistributionInitialValueProps;
 }
-function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
+function TaxDistributionForm(props: TaxDistributionFormProps) {
   const { toggle, isOpen, formData } = props;
   const formType = formData.id ? 'Edit' : 'Create';
 
@@ -26,8 +26,8 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
   const { values, errors, handleChange, handleSubmit, touched, handleBlur, resetForm } = useFormik({
     enableReinitialize: true,
     initialValues: formData,
-    validationSchema: ReportOnlinePortalValidationSchema,
-    onSubmit: (values: ReportOnlinePortalInitialValueProps, { resetForm }) => {
+    validationSchema: TaxDistributionValidationSchema,
+    onSubmit: (values: TaxDistributionInitialValueProps, { resetForm }) => {
       const requestData = { ...values };
       delete requestData.name;
       delete requestData.fiscal_year;
@@ -90,4 +90,4 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
   );
 }
 
-export default ReportOnlinePortalForm;
+export default TaxDistributionForm;

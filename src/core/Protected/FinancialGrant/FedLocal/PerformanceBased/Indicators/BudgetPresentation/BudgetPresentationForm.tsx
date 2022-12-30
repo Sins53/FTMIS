@@ -1,23 +1,24 @@
 import { Box, Text } from '@/components/core';
-import { Input, Label } from '@/components/core/FormElement';
+import { EnglishDatePicker, Input, Label } from '@/components/core/FormElement';
 import FormikValidationError from '@/components/FormikValidationError/FormikValidationError';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from '@/components/utils';
 import { useFormik } from 'formik';
 import React from 'react';
 import Button from '@/components/derived/Buttons/Buttons';
+import formatDate from '@/utils/DateFormatter/dateConverter';
 import { useTranslation } from 'react-i18next';
 import {
-  ReportOnlinePortalInitialValueProps,
-  ReportOnlinePortalValidationSchema
-} from './reportOnlinePortalSchema';
+  BudgetPresentationInitialValueProps,
+  BudgetPresentationValidationSchema
+} from './budgetPresentationSchema';
 import { base } from '@/theme/colors';
 
-interface ReportOnlinePortalFormProps {
+interface BudgetPresentationFormProps {
   toggle: () => void;
   isOpen?: boolean;
-  formData: ReportOnlinePortalInitialValueProps;
+  formData: BudgetPresentationInitialValueProps;
 }
-function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
+function BudgetPresentationForm(props: BudgetPresentationFormProps) {
   const { toggle, isOpen, formData } = props;
   const formType = formData.id ? 'Edit' : 'Create';
 
@@ -26,8 +27,8 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
   const { values, errors, handleChange, handleSubmit, touched, handleBlur, resetForm } = useFormik({
     enableReinitialize: true,
     initialValues: formData,
-    validationSchema: ReportOnlinePortalValidationSchema,
-    onSubmit: (values: ReportOnlinePortalInitialValueProps, { resetForm }) => {
+    validationSchema: BudgetPresentationValidationSchema,
+    onSubmit: (values: BudgetPresentationInitialValueProps, { resetForm }) => {
       const requestData = { ...values };
       delete requestData.name;
       delete requestData.fiscal_year;
@@ -64,6 +65,20 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
             <Box className="row">
               <Box className="col-6">
                 <Box className="mb-2">
+                  <Label htmlFor="comply">Reporting Date</Label>
+                  <EnglishDatePicker
+                    handleChange={(date) => {
+                      date !== null ? formatDate(date) : null;
+                    }}
+                    value={values?.reporting_date ?? ''}
+                    maxDate={new Date()}
+                    placeHolderText={'Choose Date'}
+                  />
+                  <FormikValidationError name="comply" errors={errors} touched={touched} />
+                </Box>
+              </Box>
+              <Box className="col-6">
+                <Box className="mb-2">
                   <Label htmlFor="comply">Comply</Label>
                   <Input
                     value={values.comply}
@@ -90,4 +105,4 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
   );
 }
 
-export default ReportOnlinePortalForm;
+export default BudgetPresentationForm;

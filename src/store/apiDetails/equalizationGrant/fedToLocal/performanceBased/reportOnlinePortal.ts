@@ -1,6 +1,6 @@
 import { RequestBodyType, RequestMethod } from '../../../request';
 
-const prefix = 'equalization_grant/gov-to-localbody-reporting-online-portal';
+const prefix = 'equalization_grant/gov-to-localbody-online-portal';
 
 const reportOnlinePortal = {
   getFedToLocalReportOnlinePortalDetails: {

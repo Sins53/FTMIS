@@ -11,38 +11,41 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Cell } from 'react-table';
 import {
-  useFedToLocalSeePerformanceDetail,
-  useFedToLocalSeePerformanceImport,
-  useFedToLocalSeePerformanceListCVS
-} from './seePerformanceQueries';
-import SeePerformanceForm from './SeePerformanceForm';
-import { FedToLocalSeePerformanceData, SeePerformanceInitialValue } from './seePerformanceSchema';
+  useFedToLocalTaxDistributionDetail,
+  useFedToLocalTaxDistributionImport,
+  useFedToLocalTaxDistributionListCVS
+} from './taxDistributionQueries';
+import TaxDistributionForm from './TaxDistributionForm';
+import {
+  FedToLocalTaxDistributionData,
+  TaxDistributionInitialValue
+} from './taxDistributionSchema';
 import { getTextByLanguage } from '@/i18n/i18n';
 import Spinner from '@/components/Spinner/Spinner';
 
-const SeePerformance = () => {
+const TaxDistribution = () => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const [rowPerPage, setRowPerPage] = useState(10);
   const [searchValue, setSearchValue] = useState<string>('');
   const debouncedValue = useDebounce(searchValue, DEBOUNCE_TIMEOUT);
   const [importFile, setImportFile] = useState<File>();
-  const { data: seePerformanceData, isLoading: seePerformanceLoading } =
-    useFedToLocalSeePerformanceDetail({
+  const { data: taxDistributionData, isLoading: taxDistributionLoading } =
+    useFedToLocalTaxDistributionDetail({
       page_size: rowPerPage,
       page: currentPage + 1,
       search: debouncedValue
     });
-  const { mutate, isLoading: importLoading } = useFedToLocalSeePerformanceImport();
+  const { mutate, isLoading: importLoading } = useFedToLocalTaxDistributionImport();
   const { mutate: exportFileMutate, isLoading: exportLoading } =
-    useFedToLocalSeePerformanceListCVS();
+    useFedToLocalTaxDistributionListCVS();
   const fileRef = useRef<HTMLInputElement>(null);
 
   const exportAsCSV = () => {
     exportFileMutate(undefined, {
       onSuccess: (data: any) => {
         if (data.data instanceof Blob) {
-          downloadBlob('Fed-To-Local-Capital-Expense', data.data);
+          downloadBlob('Fed-To-Local-Tax-Distribution', data.data);
           SuccessToast('Successful');
         }
       }
@@ -63,7 +66,7 @@ const SeePerformance = () => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState(SeePerformanceInitialValue);
+  const [formData, setFormData] = useState(TaxDistributionInitialValue);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -73,58 +76,30 @@ const SeePerformance = () => {
       {
         Header: 'Local Government',
         accessor: 'localbody.name_en',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
+        Cell: ({ row }: Cell<FedToLocalTaxDistributionData>) => {
           return (
             getTextByLanguage(row.original.localbody.name_en, row.original.localbody.name_np) || ''
           );
         }
       },
       {
-        Header: 'Total Student Appearing is SEE',
-        accessor: 'students_appeared_in_see',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          return Number(row.original.students_appeared_in_see) || 0;
-        }
-      },
-      {
-        Header: 'Students Scoring more than 1.6 GPA',
-        accessor: 'scoring_more_gpa',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          return Number(row.original.scoring_more_gpa) || 0;
-        }
-      },
-      {
-        Header: 'Consistency Rate',
-        accessor: 'consistency_rate',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          return `${Number(row.original.consistency_rate)} %` || 0;
-        }
-      },
-      // {
-      //   Header: 'Average %',
-      //   accessor: 'average_expense',
-      //   Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-      //     return `${Number(row.original.average_expense)} %` || 0;
-      //   }
-      // },
-      {
-        Header: 'Difference',
-        accessor: 'difference',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          return Number(row.original.difference) || 0;
+        Header: 'Comply',
+        accessor: 'comply',
+        Cell: ({ row }: Cell<FedToLocalTaxDistributionData>) => {
+          return row.original.comply || '';
         }
       },
       {
         Header: 'Marks',
         accessor: 'obtained_marks',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
+        Cell: ({ row }: Cell<FedToLocalTaxDistributionData>) => {
           return Number(row.original.obtained_marks) || 0;
         }
       },
       {
         Header: t('common:table.action'),
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          const { id, students_appeared_in_see, scoring_more_gpa } = row.original;
+        Cell: ({ row }: Cell<FedToLocalTaxDistributionData>) => {
+          const { id, comply } = row.original;
           const name = row.original.localbody.name_en;
           const fiscal_year = row.original.fiscal_year.name;
           return (
@@ -135,8 +110,7 @@ const SeePerformance = () => {
                   id,
                   name,
                   fiscal_year,
-                  students_appeared_in_see: Number(students_appeared_in_see),
-                  scoring_more_gpa: Number(scoring_more_gpa)
+                  comply
                 });
               }}
             />
@@ -149,12 +123,12 @@ const SeePerformance = () => {
 
   return (
     <>
-      {seePerformanceLoading ? (
+      {taxDistributionLoading ? (
         <Spinner />
       ) : (
         <>
           <Text variant="h6" color={base.primary} typeface="semiBold" className="p-3 ">
-            SEE Performance
+            Distribution of Registration, Entertainment & Advertisement tax to Province on time
           </Text>
           <input
             name="file"
@@ -170,10 +144,10 @@ const SeePerformance = () => {
             onChange={handleFileUpload}
           />
 
-          {seePerformanceData && seePerformanceData?.records.length > 0 ? (
+          {taxDistributionData && taxDistributionData?.records.length > 0 ? (
             <Box className="px-3 flex-grow-1">
               <Table
-                data={seePerformanceData.records}
+                data={taxDistributionData.records}
                 columns={columns}
                 isSearch
                 isServerSearch
@@ -183,7 +157,7 @@ const SeePerformance = () => {
                 serverPaginationParams={{
                   currentPage,
                   rowPerPage,
-                  totalItem: seePerformanceData?.totalRecords || 0,
+                  totalItem: taxDistributionData?.totalRecords || 0,
                   gotoPage: (num: number) => {
                     setCurrentPage(num);
                   },
@@ -201,7 +175,7 @@ const SeePerformance = () => {
             </Box>
           ) : (
             <EmptySection
-              title={'SEE Performance Data Not Set'}
+              title={'Tax Distribution Data Not Set'}
               description={'Click below to Upload CSV'}
               button
               btnText={'Upload CSV'}
@@ -209,11 +183,11 @@ const SeePerformance = () => {
             />
           )}
 
-          <SeePerformanceForm isOpen={isOpen} formData={formData} toggle={toggle} />
+          <TaxDistributionForm isOpen={isOpen} formData={formData} toggle={toggle} />
         </>
       )}
     </>
   );
 };
 
-export default SeePerformance;
+export default TaxDistribution;

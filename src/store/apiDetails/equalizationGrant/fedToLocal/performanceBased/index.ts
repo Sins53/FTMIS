@@ -11,6 +11,12 @@ import studentConsistencyRate from './studentConsistencyRate';
 import seePerformance from './seePerformance';
 import pregnancyTest from './pregnancyTest';
 import reportOnlinePortal from './reportOnlinePortal';
+import healthInstitute from './healthInstitute';
+import completeVaccination from './completeVaccination';
+import budgetPresentation from './budgetPresentation';
+import budgetApproval from './budgetApproval';
+import taxDistribution from './taxDistribution';
+import reportingToMof from './reportingToMof';
 
 const prefix = 'equalization_grant';
 
@@ -54,5 +60,11 @@ export default {
   studentConsistencyRate,
   seePerformance,
   pregnancyTest,
-  reportOnlinePortal
+  reportOnlinePortal,
+  healthInstitute,
+  completeVaccination,
+  budgetPresentation,
+  budgetApproval,
+  taxDistribution,
+  reportingToMof
 };

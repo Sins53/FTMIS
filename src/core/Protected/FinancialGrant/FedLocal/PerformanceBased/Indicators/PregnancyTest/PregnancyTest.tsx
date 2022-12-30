@@ -95,16 +95,9 @@ const PregnancyTest = () => {
       },
       {
         Header: 'Pregnancy Test Rate',
-        accessor: 'expense_pct',
+        accessor: 'pregnency_test_rate',
         Cell: ({ row }: Cell<FedToLocalPregnancyTestData>) => {
-          return `${Number(row.original.expense_pct)} %` || 0;
-        }
-      },
-      {
-        Header: 'Average %',
-        accessor: 'average_expense',
-        Cell: ({ row }: Cell<FedToLocalPregnancyTestData>) => {
-          return `${Number(row.original.average_expense)} %` || 0;
+          return `${Number(row.original.pregnency_test_rate)} %` || 0;
         }
       },
       {

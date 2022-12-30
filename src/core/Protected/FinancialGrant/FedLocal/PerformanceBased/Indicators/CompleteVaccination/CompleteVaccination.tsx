@@ -11,38 +11,41 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Cell } from 'react-table';
 import {
-  useFedToLocalSeePerformanceDetail,
-  useFedToLocalSeePerformanceImport,
-  useFedToLocalSeePerformanceListCVS
-} from './seePerformanceQueries';
-import SeePerformanceForm from './SeePerformanceForm';
-import { FedToLocalSeePerformanceData, SeePerformanceInitialValue } from './seePerformanceSchema';
+  useFedToLocalCompleteVaccinationDetail,
+  useFedToLocalCompleteVaccinationImport,
+  useFedToLocalCompleteVaccinationListCVS
+} from './completeVaccinationQueries';
+import CompleteVaccinationForm from './CompleteVaccinationForm';
+import {
+  FedToLocalCompleteVaccinationData,
+  CompleteVaccinationInitialValue
+} from './completeVaccinationSchema';
 import { getTextByLanguage } from '@/i18n/i18n';
 import Spinner from '@/components/Spinner/Spinner';
 
-const SeePerformance = () => {
+const CompleteVaccination = () => {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const [rowPerPage, setRowPerPage] = useState(10);
   const [searchValue, setSearchValue] = useState<string>('');
   const debouncedValue = useDebounce(searchValue, DEBOUNCE_TIMEOUT);
   const [importFile, setImportFile] = useState<File>();
-  const { data: seePerformanceData, isLoading: seePerformanceLoading } =
-    useFedToLocalSeePerformanceDetail({
+  const { data: completeVaccinationData, isLoading: completeVaccinationLoading } =
+    useFedToLocalCompleteVaccinationDetail({
       page_size: rowPerPage,
       page: currentPage + 1,
       search: debouncedValue
     });
-  const { mutate, isLoading: importLoading } = useFedToLocalSeePerformanceImport();
+  const { mutate, isLoading: importLoading } = useFedToLocalCompleteVaccinationImport();
   const { mutate: exportFileMutate, isLoading: exportLoading } =
-    useFedToLocalSeePerformanceListCVS();
+    useFedToLocalCompleteVaccinationListCVS();
   const fileRef = useRef<HTMLInputElement>(null);
 
   const exportAsCSV = () => {
     exportFileMutate(undefined, {
       onSuccess: (data: any) => {
         if (data.data instanceof Blob) {
-          downloadBlob('Fed-To-Local-Capital-Expense', data.data);
+          downloadBlob('Fed-To-Local-Complete Vaccination', data.data);
           SuccessToast('Successful');
         }
       }
@@ -63,7 +66,7 @@ const SeePerformance = () => {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState(SeePerformanceInitialValue);
+  const [formData, setFormData] = useState(CompleteVaccinationInitialValue);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -73,58 +76,58 @@ const SeePerformance = () => {
       {
         Header: 'Local Government',
         accessor: 'localbody.name_en',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
+        Cell: ({ row }: Cell<FedToLocalCompleteVaccinationData>) => {
           return (
             getTextByLanguage(row.original.localbody.name_en, row.original.localbody.name_np) || ''
           );
         }
       },
       {
-        Header: 'Total Student Appearing is SEE',
-        accessor: 'students_appeared_in_see',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          return Number(row.original.students_appeared_in_see) || 0;
+        Header: 'No. of Children Below 24 months',
+        accessor: 'below_24_months_children',
+        Cell: ({ row }: Cell<FedToLocalCompleteVaccinationData>) => {
+          return Number(row.original.below_24_months_children) || 0;
         }
       },
       {
-        Header: 'Students Scoring more than 1.6 GPA',
-        accessor: 'scoring_more_gpa',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          return Number(row.original.scoring_more_gpa) || 0;
+        Header: 'No. of Children Taking All Vaccinations',
+        accessor: 'childrens_taking_all_vaccination',
+        Cell: ({ row }: Cell<FedToLocalCompleteVaccinationData>) => {
+          return Number(row.original.childrens_taking_all_vaccination) || 0;
         }
       },
       {
-        Header: 'Consistency Rate',
-        accessor: 'consistency_rate',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          return `${Number(row.original.consistency_rate)} %` || 0;
+        Header: 'Rate',
+        accessor: 'rate',
+        Cell: ({ row }: Cell<FedToLocalCompleteVaccinationData>) => {
+          return `${Number(row.original.rate)} %` || 0;
         }
       },
-      // {
-      //   Header: 'Average %',
-      //   accessor: 'average_expense',
-      //   Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-      //     return `${Number(row.original.average_expense)} %` || 0;
-      //   }
-      // },
+      {
+        Header: 'Average %',
+        accessor: 'average_rate',
+        Cell: ({ row }: Cell<FedToLocalCompleteVaccinationData>) => {
+          return `${Number(row.original.average_rate)} %` || 0;
+        }
+      },
       {
         Header: 'Difference',
         accessor: 'difference',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
+        Cell: ({ row }: Cell<FedToLocalCompleteVaccinationData>) => {
           return Number(row.original.difference) || 0;
         }
       },
       {
         Header: 'Marks',
         accessor: 'obtained_marks',
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
+        Cell: ({ row }: Cell<FedToLocalCompleteVaccinationData>) => {
           return Number(row.original.obtained_marks) || 0;
         }
       },
       {
         Header: t('common:table.action'),
-        Cell: ({ row }: Cell<FedToLocalSeePerformanceData>) => {
-          const { id, students_appeared_in_see, scoring_more_gpa } = row.original;
+        Cell: ({ row }: Cell<FedToLocalCompleteVaccinationData>) => {
+          const { id, below_24_months_children, childrens_taking_all_vaccination } = row.original;
           const name = row.original.localbody.name_en;
           const fiscal_year = row.original.fiscal_year.name;
           return (
@@ -135,8 +138,8 @@ const SeePerformance = () => {
                   id,
                   name,
                   fiscal_year,
-                  students_appeared_in_see: Number(students_appeared_in_see),
-                  scoring_more_gpa: Number(scoring_more_gpa)
+                  below_24_months_children: Number(below_24_months_children),
+                  childrens_taking_all_vaccination: Number(childrens_taking_all_vaccination)
                 });
               }}
             />
@@ -149,12 +152,12 @@ const SeePerformance = () => {
 
   return (
     <>
-      {seePerformanceLoading ? (
+      {completeVaccinationLoading ? (
         <Spinner />
       ) : (
         <>
           <Text variant="h6" color={base.primary} typeface="semiBold" className="p-3 ">
-            SEE Performance
+            Complete Vaccination
           </Text>
           <input
             name="file"
@@ -170,10 +173,10 @@ const SeePerformance = () => {
             onChange={handleFileUpload}
           />
 
-          {seePerformanceData && seePerformanceData?.records.length > 0 ? (
+          {completeVaccinationData && completeVaccinationData?.records.length > 0 ? (
             <Box className="px-3 flex-grow-1">
               <Table
-                data={seePerformanceData.records}
+                data={completeVaccinationData.records}
                 columns={columns}
                 isSearch
                 isServerSearch
@@ -183,7 +186,7 @@ const SeePerformance = () => {
                 serverPaginationParams={{
                   currentPage,
                   rowPerPage,
-                  totalItem: seePerformanceData?.totalRecords || 0,
+                  totalItem: completeVaccinationData?.totalRecords || 0,
                   gotoPage: (num: number) => {
                     setCurrentPage(num);
                   },
@@ -201,7 +204,7 @@ const SeePerformance = () => {
             </Box>
           ) : (
             <EmptySection
-              title={'SEE Performance Data Not Set'}
+              title={'Complete Vaccination Data Not Set'}
               description={'Click below to Upload CSV'}
               button
               btnText={'Upload CSV'}
@@ -209,11 +212,11 @@ const SeePerformance = () => {
             />
           )}
 
-          <SeePerformanceForm isOpen={isOpen} formData={formData} toggle={toggle} />
+          <CompleteVaccinationForm isOpen={isOpen} formData={formData} toggle={toggle} />
         </>
       )}
     </>
   );
 };
 
-export default SeePerformance;
+export default CompleteVaccination;

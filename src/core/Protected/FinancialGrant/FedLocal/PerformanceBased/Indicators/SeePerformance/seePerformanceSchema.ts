@@ -33,8 +33,7 @@ export interface FedToLocalSeePerformanceData {
   obtained_marks: string | number;
   students_appeared_in_see: string;
   scoring_more_gpa: string;
-  expense_pct: string;
-  average_expense: string;
+  consistency_rate: string;
 }
 
 export type SeePerformanceResponse = CommonArrayResponseTypes<FedToLocalSeePerformanceData[]>;

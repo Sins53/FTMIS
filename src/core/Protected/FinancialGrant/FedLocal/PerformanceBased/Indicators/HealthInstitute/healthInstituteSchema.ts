@@ -2,29 +2,29 @@ import { CommonArrayResponseTypes } from '@/helper/default-action';
 import * as Yup from 'yup';
 import { FiscalYear, Indicator, LocalBody } from '../../indicatorsCommonSchema';
 
-export interface PregnancyTestInitialValueProps {
+export interface HealthInstituteInitialValueProps {
   id?: string | number;
   name?: string;
   fiscal_year?: string | number;
   pregnants_number: string | number;
-  four_times_checked_pregnant_number: string | number;
+  no_of_delivery_at_health_institute: string | number;
 }
 
-export const PregnancyTestInitialValue: PregnancyTestInitialValueProps = {
+export const HealthInstituteInitialValue: HealthInstituteInitialValueProps = {
   pregnants_number: '',
-  four_times_checked_pregnant_number: ''
+  no_of_delivery_at_health_institute: ''
 };
 
-export const PregnancyTestValidationSchema = Yup.object({
+export const HealthInstituteValidationSchema = Yup.object({
   pregnants_number: Yup.number()
     .required('No. of Pregnants is required')
     .min(0, 'Must be positive'),
-  four_times_checked_pregnant_number: Yup.number()
-    .required('No. of Women who Checked out 4 times is required')
+  no_of_delivery_at_health_institute: Yup.number()
+    .required('No. of Deliveries at Health Institute is required')
     .min(0, 'Must be positive')
 });
 
-export interface FedToLocalPregnancyTestData {
+export interface FedToLocalHealthInstituteData {
   id: number;
   localbody: LocalBody;
   indicator: Indicator;
@@ -32,8 +32,9 @@ export interface FedToLocalPregnancyTestData {
   difference: string | number;
   obtained_marks: string | number;
   pregnants_number: string;
-  four_times_checked_pregnant_number: string;
-  pregnency_test_rate: string;
+  no_of_delivery_at_health_institute: string;
+  rate: string;
+  average_rate: string;
 }
 
-export type PregnancyTestResponse = CommonArrayResponseTypes<FedToLocalPregnancyTestData[]>;
+export type HealthInstituteResponse = CommonArrayResponseTypes<FedToLocalHealthInstituteData[]>;

@@ -7,17 +7,17 @@ import React from 'react';
 import Button from '@/components/derived/Buttons/Buttons';
 import { useTranslation } from 'react-i18next';
 import {
-  ReportOnlinePortalInitialValueProps,
-  ReportOnlinePortalValidationSchema
-} from './reportOnlinePortalSchema';
+  CompleteVaccinationInitialValueProps,
+  CompleteVaccinationValidationSchema
+} from './completeVaccinationSchema';
 import { base } from '@/theme/colors';
 
-interface ReportOnlinePortalFormProps {
+interface CompleteVaccinationFormProps {
   toggle: () => void;
   isOpen?: boolean;
-  formData: ReportOnlinePortalInitialValueProps;
+  formData: CompleteVaccinationInitialValueProps;
 }
-function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
+function CompleteVaccinationForm(props: CompleteVaccinationFormProps) {
   const { toggle, isOpen, formData } = props;
   const formType = formData.id ? 'Edit' : 'Create';
 
@@ -26,8 +26,8 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
   const { values, errors, handleChange, handleSubmit, touched, handleBlur, resetForm } = useFormik({
     enableReinitialize: true,
     initialValues: formData,
-    validationSchema: ReportOnlinePortalValidationSchema,
-    onSubmit: (values: ReportOnlinePortalInitialValueProps, { resetForm }) => {
+    validationSchema: CompleteVaccinationValidationSchema,
+    onSubmit: (values: CompleteVaccinationInitialValueProps, { resetForm }) => {
       const requestData = { ...values };
       delete requestData.name;
       delete requestData.fiscal_year;
@@ -64,14 +64,38 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
             <Box className="row">
               <Box className="col-6">
                 <Box className="mb-2">
-                  <Label htmlFor="comply">Comply</Label>
+                  <Label htmlFor="below_24_months_children">No. of Children Below 24 months</Label>
                   <Input
-                    value={values.comply}
+                    value={values.below_24_months_children}
+                    type="number"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    name="comply"
+                    name="below_24_months_children"
                   />
-                  <FormikValidationError name="comply" errors={errors} touched={touched} />
+                  <FormikValidationError
+                    name="below_24_months_children"
+                    errors={errors}
+                    touched={touched}
+                  />
+                </Box>
+              </Box>
+              <Box className="col-6">
+                <Box className="mb-2">
+                  <Label htmlFor="childrens_taking_all_vaccination">
+                    No. of Children Taking All Vaccinations
+                  </Label>
+                  <Input
+                    value={values.childrens_taking_all_vaccination}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    type="number"
+                    name="childrens_taking_all_vaccination"
+                  />
+                  <FormikValidationError
+                    name="childrens_taking_all_vaccination"
+                    errors={errors}
+                    touched={touched}
+                  />
                 </Box>
               </Box>
             </Box>
@@ -90,4 +114,4 @@ function ReportOnlinePortalForm(props: ReportOnlinePortalFormProps) {
   );
 }
 
-export default ReportOnlinePortalForm;
+export default CompleteVaccinationForm;

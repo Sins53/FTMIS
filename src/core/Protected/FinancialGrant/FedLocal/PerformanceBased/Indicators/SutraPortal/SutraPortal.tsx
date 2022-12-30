@@ -81,7 +81,7 @@ const SutraPortal = () => {
         Header: 'Comply',
         accessor: 'comply',
         Cell: ({ row }: Cell<FedToLocalSutraPortalData>) => {
-          return Number(row.original.comply) || 0;
+          return row.original.comply || '';
         }
       },
       {
